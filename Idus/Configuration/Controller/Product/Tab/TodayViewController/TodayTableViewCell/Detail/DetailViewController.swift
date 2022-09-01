@@ -94,7 +94,7 @@ class DetailViewController: UIViewController {
         self.deliveryView.layer.borderWidth = 2
         self.deliveryView.layer.borderColor = UIColor.lightGray.cgColor
         self.deliveryView.layer.cornerRadius = 4
-        buyButton.backgroundColor = .idusmainColor
+        buyButton.backgroundColor = .idusMainColor
         buyButton.layer.cornerRadius = 4
         
     }

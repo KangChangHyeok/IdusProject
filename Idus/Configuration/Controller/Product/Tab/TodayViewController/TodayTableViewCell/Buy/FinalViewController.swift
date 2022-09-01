@@ -30,7 +30,7 @@ class FinalViewController: UIViewController {
     func SettingUI() {
         
         
-        buyButton.backgroundColor = .idusmainColor
+        buyButton.backgroundColor = .idusMainColor
         buyButton.layer.cornerRadius = 4
     }
     

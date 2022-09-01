@@ -10,7 +10,7 @@ import Alamofire
 
 struct Keys {
     
-    static let baseURL = "https://prod.idus-b.shop"
+    static let baseURL = "https://prod.servermax.shop"
     
     static let headers: HTTPHeaders = [
                 "Content-Type":"application/json",

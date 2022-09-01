@@ -7,22 +7,12 @@
 
 import UIKit
 
-class KakaoLoginPopUpViewController: UIViewController {
+class KakaoSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-    
     }
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-    
-    func buttonSet() {
-        
-    }
-
-    
-
 }

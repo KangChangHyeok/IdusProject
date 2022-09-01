@@ -23,7 +23,7 @@ class CardResigsterViewController: UIViewController, UITextFieldDelegate {
         cardBirth.delegate = self
         cardBN.delegate = self
         cardPw.delegate = self
-        buyButton.backgroundColor = .idusmainColor
+        buyButton.backgroundColor = .idusMainColor
     }
     
 

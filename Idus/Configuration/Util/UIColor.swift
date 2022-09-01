@@ -21,12 +21,11 @@ extension UIColor {
     }
     
     // MARK: 메인 테마 색 또는 자주 쓰는 색을 정의
-    // ex. label.textColor = .mainOrange
     class var mainOrange: UIColor { UIColor(hex: 0xF5663F) }
-    class var idusmainColor: UIColor {UIColor(hex: 0xef8345)}
-    class var kakaofont: UIColor {UIColor(hex: 0x3A1D1D)}
-    class var splashPVCColor: UIColor {UIColor(hex: 0xf7f6f4)}
-    class var kakaoyellow: UIColor {UIColor(hex: 0xF7E600)}
+    class var idusMainColor: UIColor {UIColor(hex: 0xef8345)}
+    class var kakaoFontColor: UIColor {UIColor(hex: 0x3A1D1D)}
+    class var LoginViewImageBackgroundColor: UIColor {UIColor(hex: 0xf7f6f4)}
+    class var kakaoYellowColor: UIColor {UIColor(hex: 0xF7E600)}
     class var lightGray: UIColor {UIColor(hex: 0xD9D9D9)}
 }
 

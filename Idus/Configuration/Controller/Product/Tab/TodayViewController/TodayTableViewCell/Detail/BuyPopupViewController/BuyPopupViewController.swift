@@ -19,7 +19,7 @@ class BuyPopupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        butButton.backgroundColor = .idusmainColor
+        butButton.backgroundColor = .idusMainColor
         butButton.layer.cornerRadius = 4
         
     }

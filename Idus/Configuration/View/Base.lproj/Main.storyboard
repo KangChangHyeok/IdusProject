@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kakao Login Pop Up View Controller-->
+        <!--Kakao Sign Up View Controller-->
         <scene sceneID="cvE-CE-XQi">
             <objects>
-                <viewController storyboardIdentifier="KakaoLoginPopUpViewController" id="Gbx-cY-BaZ" customClass="KakaoLoginPopUpViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KakaoSignUpViewController" id="Gbx-cY-BaZ" customClass="KakaoSignUpViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3jk-7b-x7e">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,12 +32,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATU-ng-5kW">
                                         <rect key="frame" x="0.0" y="55.666666666666742" width="388" height="46"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="KakaoTalkLogin"/>
+                                        <state key="normal" backgroundImage="kakaotalkEasyLoginImage"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1v-vT-Yn4">
                                         <rect key="frame" x="0.0" y="111.66666666666676" width="388" height="45.666666666666671"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="KakaoAccountLogin"/>
+                                        <state key="normal" backgroundImage="kakaoAccountLoginImage"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -578,10 +578,10 @@
             </objects>
             <point key="canvasLocation" x="-3391" y="884"/>
         </scene>
-        <!--Splash View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="G2w-nM-MG6">
             <objects>
-                <viewController storyboardIdentifier="SplashViewController" id="JFO-um-Nas" customClass="SplashViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" id="JFO-um-Nas" customClass="LoginViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wtP-6V-J7D">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -645,7 +645,7 @@
                                                 <state key="normal" title="카카오로 3초만에 시작하기"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="카카오로 3초만에 시작하기"/>
                                                 <connections>
-                                                    <action selector="kakaoLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="yx0-pe-4OT"/>
+                                                    <action selector="kakaoSignUpButtonTapped:" destination="JFO-um-Nas" eventType="touchUpInside" id="DBl-ag-kmE"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-oI-qvo">
@@ -654,7 +654,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="다른 방법으로 가입하기"/>
                                                 <connections>
-                                                    <action selector="otherLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="LYv-zh-bH9"/>
+                                                    <action selector="otherSignUpButtonTapped:" destination="JFO-um-Nas" eventType="touchUpInside" id="jz4-2x-SIw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -674,9 +674,6 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="기존 회원 로그인"/>
-                                                <connections>
-                                                    <action selector="existUserLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="H6z-Ou-XT5"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gk-6D-QEy">
                                                 <rect key="frame" x="0.0" y="48" width="308" height="38"/>
@@ -698,7 +695,8 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="notUserLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="BXX-wr-kbx"/>
+                                                    <action selector="existUserLoginButtonTapped:" destination="JFO-um-Nas" eventType="touchUpInside" id="iK6-2i-l30"/>
+                                                    <action selector="noSignUpButtonTapped:" destination="JFO-um-Nas" eventType="touchUpInside" id="qvs-Mv-qrJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -743,14 +741,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appleButton" destination="8Gk-6D-QEy" id="Qgh-xy-Ywu"/>
-                        <outlet property="dottedV" destination="xbn-JA-DJw" id="oWR-oo-fvT"/>
-                        <outlet property="existButton" destination="cdO-Z5-HAc" id="O2E-PO-dwG"/>
-                        <outlet property="kakaoButton" destination="l7V-Jo-Gv0" id="bTq-Z2-hHg"/>
-                        <outlet property="noMemeberButton" destination="qTT-IJ-2ia" id="VOM-BL-eaL"/>
-                        <outlet property="otherButton" destination="zxH-oI-qvo" id="NLr-5L-kdc"/>
-                        <outlet property="splashMainV" destination="UlQ-NP-1hb" id="NkP-yD-TFY"/>
-                        <outlet property="transitionV" destination="l5Z-X2-vsi" id="gge-q0-4V1"/>
+                        <outlet property="appleUserLoginButton" destination="8Gk-6D-QEy" id="Qgh-xy-Ywu"/>
+                        <outlet property="background" destination="l5Z-X2-vsi" id="gge-q0-4V1"/>
+                        <outlet property="dotLine" destination="xbn-JA-DJw" id="oWR-oo-fvT"/>
+                        <outlet property="existUserLoginButton" destination="cdO-Z5-HAc" id="O2E-PO-dwG"/>
+                        <outlet property="imageView" destination="UlQ-NP-1hb" id="NkP-yD-TFY"/>
+                        <outlet property="kakaoSignUpButton" destination="l7V-Jo-Gv0" id="bTq-Z2-hHg"/>
+                        <outlet property="noSignUpButton" destination="qTT-IJ-2ia" id="HDF-Ts-PjR"/>
+                        <outlet property="otherSignUpButton" destination="zxH-oI-qvo" id="NLr-5L-kdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZ9-SL-WwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3225,14 +3223,14 @@
         <image name="4" width="4160" height="6240"/>
         <image name="IMG_6617" width="408" height="270"/>
         <image name="IMG_6618" width="877" height="416"/>
-        <image name="KakaoAccountLogin" width="2196" height="254"/>
-        <image name="KakaoTalkLogin" width="2202" height="268"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="kakaoAccountLoginImage" width="1200" height="144"/>
+        <image name="kakaotalkEasyLoginImage" width="1200" height="146"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>

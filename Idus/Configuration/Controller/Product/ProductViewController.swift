@@ -28,10 +28,10 @@ class ProductViewController: TabmanViewController {
         
         let bar = TMBar.ButtonBar()
         bar.layout.contentMode = .fit
-        bar.indicator.backgroundColor = .idusmainColor
+        bar.indicator.backgroundColor = .idusMainColor
         
         bar.buttons.customize { button in
-            button.selectedTintColor = .idusmainColor
+            button.selectedTintColor = .idusMainColor
         }
         addBar(bar, dataSource: self, at: .custom(view: tabV, layout: nil))
     }

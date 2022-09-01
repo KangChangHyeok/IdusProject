@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2397389870D965A69ECE8F1F /* Pods_Idus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33B03DE015C519A76D8F0B4 /* Pods_Idus.framework */; };
-		270BF10C28684581000AEF14 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BF10B28684581000AEF14 /* SplashViewController.swift */; };
+		270BF10C28684581000AEF14 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BF10B28684581000AEF14 /* LoginViewController.swift */; };
 		270BF10E28684F6E000AEF14 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BF10D28684F6E000AEF14 /* UIView.swift */; };
-		270BF110286898AD000AEF14 /* KakaoLoginPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BF10F286898AD000AEF14 /* KakaoLoginPopUpViewController.swift */; };
+		270BF110286898AD000AEF14 /* KakaoSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270BF10F286898AD000AEF14 /* KakaoSignUpViewController.swift */; };
 		273110D328693AB100ECADEC /* EmailSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273110D228693AB100ECADEC /* EmailSignUpViewController.swift */; };
 		273110D528698A8700ECADEC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273110D428698A8700ECADEC /* UITextField.swift */; };
 		2751BED9286742E3005F9763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751BED8286742E3005F9763 /* AppDelegate.swift */; };
@@ -85,9 +85,9 @@
 
 /* Begin PBXFileReference section */
 		25488FAF1882627CC2288A3B /* Pods-Idus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idus.debug.xcconfig"; path = "Target Support Files/Pods-Idus/Pods-Idus.debug.xcconfig"; sourceTree = "<group>"; };
-		270BF10B28684581000AEF14 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		270BF10B28684581000AEF14 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		270BF10D28684F6E000AEF14 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		270BF10F286898AD000AEF14 /* KakaoLoginPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginPopUpViewController.swift; sourceTree = "<group>"; };
+		270BF10F286898AD000AEF14 /* KakaoSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpViewController.swift; sourceTree = "<group>"; };
 		273110D228693AB100ECADEC /* EmailSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpViewController.swift; sourceTree = "<group>"; };
 		273110D428698A8700ECADEC /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		2751BED5286742E3005F9763 /* Idus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,7 +414,7 @@
 		276B48DE286C995300576758 /* PopUpVC */ = {
 			isa = PBXGroup;
 			children = (
-				270BF10F286898AD000AEF14 /* KakaoLoginPopUpViewController.swift */,
+				270BF10F286898AD000AEF14 /* KakaoSignUpViewController.swift */,
 				27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */,
 			);
 			path = PopUpVC;
@@ -424,7 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				273110D228693AB100ECADEC /* EmailSignUpViewController.swift */,
-				270BF10B28684581000AEF14 /* SplashViewController.swift */,
+				270BF10B28684581000AEF14 /* LoginViewController.swift */,
 				276B48DA286C4A8F00576758 /* ExistingMemberViewController.swift */,
 			);
 			path = Login;
@@ -694,7 +694,7 @@
 				27D0297828771BE90039B97F /* FinalNavigationController.swift in Sources */,
 				275BB3702873D9E9004C9734 /* Category2Cell.swift in Sources */,
 				275BB36A28731113004C9734 /* CategoryCollectionViewCell.swift in Sources */,
-				270BF110286898AD000AEF14 /* KakaoLoginPopUpViewController.swift in Sources */,
+				270BF110286898AD000AEF14 /* KakaoSignUpViewController.swift in Sources */,
 				27F6307B2875226800E1C6C6 /* DetailData.swift in Sources */,
 				275BB38B2873F2F8004C9734 /* RealTimeAndNewProductData.swift in Sources */,
 				27F630812875920F00E1C6C6 /* ReviewCell.swift in Sources */,
@@ -735,7 +735,7 @@
 				275BB3742873D9FF004C9734 /* Category3Cell.swift in Sources */,
 				27EE680D286D610B00EC9B6D /* Keys.swift in Sources */,
 				27FC524D286DA3C600A09424 /* ProductViewController.swift in Sources */,
-				270BF10C28684581000AEF14 /* SplashViewController.swift in Sources */,
+				270BF10C28684581000AEF14 /* LoginViewController.swift in Sources */,
 				275BB3792873DC23004C9734 /* Category2CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

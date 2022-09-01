@@ -48,7 +48,7 @@ class BuyViewController: UIViewController {
     }
     
     func setUi() {
-        buyButton.backgroundColor = .idusmainColor
+        buyButton.backgroundColor = .idusMainColor
         buyButton.layer.cornerRadius = 4
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.lightGray.cgColor
