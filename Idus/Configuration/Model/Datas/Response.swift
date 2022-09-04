@@ -5,20 +5,17 @@
 
 import Foundation
 
-// MARK: - SignUpResult
-struct ResponseResult: Codable {
-    let isSuccess: Bool?
-    let code: Int?
-    let message: String?
+// MARK: - SignUpUserInformationResponse(API 1.)
+struct postSignUpUserInformationResponse: Codable {
+    let isSuccess: Bool
+    let code: Int
+    let message: String
     let result: Result?
 }
-
-// MARK: - Result
 struct Result: Codable {
     let userIdx: Int
     let jwt: String
 }
-
 // MARK: - SignUpResult
 struct LogOutResult: Codable {
     let isSuccess: Bool?

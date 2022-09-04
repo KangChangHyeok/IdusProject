@@ -10,12 +10,8 @@ import Alamofire
 
 struct Keys {
     
-    static let baseURL = "https://prod.servermax.shop"
     
-    static let headers: HTTPHeaders = [
-                "Content-Type":"application/json",
-                "Accept": "application/json"
-            ]
+    
     static let jwtHeaders: HTTPHeaders = [
         "Content-Type":"application/json",
         "Accept": "application/json",

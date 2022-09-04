@@ -8,10 +8,16 @@
 import UIKit
 
 class KakaoSignUpViewController: UIViewController {
-
+    //MARK: - IBOutlet
+    @IBOutlet weak var background: UIImageView!
+    
+    var backgroundImage: UIImage?
+    //MARK: - override Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        background.image = backgroundImage
     }
+    //MARK: - IBAction
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
     }

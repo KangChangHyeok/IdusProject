@@ -11,8 +11,6 @@ class ProductNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(UserInfo.shared.useridx)
     }
 
 }

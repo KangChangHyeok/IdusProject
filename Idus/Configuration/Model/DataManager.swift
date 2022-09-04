@@ -10,9 +10,39 @@ import Alamofire
 
 class DataManager {
     
+    private let baseURL = "https://prod.servermax.shop"
+    private let headers: HTTPHeaders = [
+                "Content-Type":"application/json",
+                "Accept": "application/json"
+            ]
+    //MARK: - 이메일 회원가입 API
+    func postSignUpUserInformation(sender: SignUpUserInformation, completion: @escaping (postSignUpUserInformationResponse) -> Void) {
+        guard let userName = sender.userName, let userEmail = sender.userEmail, let userPw = sender.userPw, let userPhoneNumber = sender.userPhoneNumber else { return }
+        let parameters: Parameters = [
+            "userName": "\(userName)",
+            "userEmail": "\(userEmail)",
+            "userPw": "\(userPw)",
+            "userPhoneNumber": "\(userPhoneNumber)"
+        ]
+        
+        AF.request(
+            baseURL + "/users",
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default)
+        .responseDecodable(of: postSignUpUserInformationResponse.self) { response in
+            switch response.result {
+            case .success(let result):
+                completion(result)
+                print(result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     func postLogOut(completion: @escaping (LogOutResult) -> Void) {
         AF.request(
-            "\(Keys.baseURL)/users/logout/\(UserInfo.shared.useridx!)",
+            "\(baseURL)/users/logout/\(UserInfo.shared.useridx!)",
             method: .patch,
             encoding: JSONEncoding.default,
             headers: Keys.jwtHeaders)
@@ -52,7 +82,7 @@ class DataManager {
     var todayProductData: TodayProductData?
     
     func getTodayProductData(completion: @escaping (TodayProductData) -> Void) {
-        AF.request(Keys.baseURL + "/products/today",
+        AF.request(baseURL + "/products/today",
                    method: .get,
                    parameters: nil,
                    encoding: JSONEncoding.default,
@@ -74,7 +104,7 @@ class DataManager {
     var detailData: DetailData?
     func getDetailData(completion: @escaping (DetailData) -> Void) {
         
-        AF.request(Keys.baseURL + "/products/\(DetailViewController.productIdx!)",
+        AF.request(baseURL + "/products/\(DetailViewController.productIdx!)",
                    method: .get,
                    parameters: nil,
                    encoding: JSONEncoding.default,
@@ -98,7 +128,7 @@ class DataManager {
     var realTimeAndNewProductData: RealTimeAndNewProductData?
     
     func getRealTimeAndNewProductData(completion: @escaping (RealTimeAndNewProductData) -> Void) {
-        AF.request(Keys.baseURL + "/products/real-time",
+        AF.request(baseURL + "/products/real-time",
                    method: .get,
                    parameters: nil,
                    encoding: JSONEncoding.default,
@@ -155,8 +185,8 @@ class DataManager {
             
         }
     }
-
-
+    
+    
     //MARK: - API Index 28 유저 신용카드 등록
     func postCardResigster(completion: @escaping (CardResigsterResult) -> Void, vc: CardResigsterViewController) {
         

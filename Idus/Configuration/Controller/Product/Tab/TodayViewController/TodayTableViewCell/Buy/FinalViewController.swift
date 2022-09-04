@@ -55,13 +55,13 @@ class FinalViewController: UIViewController {
     }
     @IBAction func buyButtonTapped(_ sender: UIButton) {
         
-        postdata.postBuyProduct(completion: { CardResigsterResult in
-            debugPrint(CardResigsterResult)
-        }, vc: self)
-        
-        self.dismiss(animated: true) {
-            guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController else { return }
-            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
-        }
+//        postdata.postBuyProduct(completion: { CardResigsterResult in
+//            debugPrint(CardResigsterResult)
+//        }, vc: self)
+//        
+//        self.dismiss(animated: true) {
+//            guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController else { return }
+//            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
+//        }
     }
 }

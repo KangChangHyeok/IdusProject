@@ -15,7 +15,7 @@
 		273110D528698A8700ECADEC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273110D428698A8700ECADEC /* UITextField.swift */; };
 		2751BED9286742E3005F9763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751BED8286742E3005F9763 /* AppDelegate.swift */; };
 		2751BEDB286742E3005F9763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751BEDA286742E3005F9763 /* SceneDelegate.swift */; };
-		2751BEDD286742E3005F9763 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751BEDC286742E3005F9763 /* TabBarController.swift */; };
+		2751BEDD286742E3005F9763 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751BEDC286742E3005F9763 /* MainViewController.swift */; };
 		2751BEE0286742E3005F9763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2751BEDE286742E3005F9763 /* Main.storyboard */; };
 		2751BEE3286742E3005F9763 /* Ideas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2751BEE1286742E3005F9763 /* Ideas.xcdatamodeld */; };
 		2751BEE5286742E5005F9763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2751BEE4286742E5005F9763 /* Assets.xcassets */; };
@@ -49,10 +49,11 @@
 		275BB38F28742EF0004C9734 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB38E28742EF0004C9734 /* DetailViewController.swift */; };
 		275BB391287444E4004C9734 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB390287444E4004C9734 /* UIViewController.swift */; };
 		275BB39328745CED004C9734 /* DetailViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB39228745CED004C9734 /* DetailViewNavigationController.swift */; };
-		276B48D9286AF94300576758 /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B48D8286AF94300576758 /* ResponseResult.swift */; };
-		276B48DB286C4A8F00576758 /* ExistingMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B48DA286C4A8F00576758 /* ExistingMemberViewController.swift */; };
+		276B48D9286AF94300576758 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B48D8286AF94300576758 /* Response.swift */; };
+		276B48DB286C4A8F00576758 /* ExistingUserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B48DA286C4A8F00576758 /* ExistingUserLoginViewController.swift */; };
 		278D21BB2874707200F3EA79 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278D21BA2874707200F3EA79 /* SearchViewController.swift */; };
 		27AF19002869BA670009AD3E /* PhoneNumberCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */; };
+		27B9946428C4E41C00B17910 /* SignUpInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9946328C4E41C00B17910 /* SignUpInformation.swift */; };
 		27BE98CC286DD62A00766272 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BE98CB286DD62A00766272 /* MyInformationViewController.swift */; };
 		27C915DA287BBF50008C2C29 /* UserInformationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C915D9287BBF4F008C2C29 /* UserInformationData.swift */; };
 		27C915DC287BF64C008C2C29 /* MyDibsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C915DB287BF64C008C2C29 /* MyDibsViewController.swift */; };
@@ -93,7 +94,7 @@
 		2751BED5286742E3005F9763 /* Idus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2751BED8286742E3005F9763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2751BEDA286742E3005F9763 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2751BEDC286742E3005F9763 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2751BEDC286742E3005F9763 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2751BEDF286742E3005F9763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2751BEE2286742E3005F9763 /* Ideas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ideas.xcdatamodel; sourceTree = "<group>"; };
 		2751BEE4286742E5005F9763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,10 +125,11 @@
 		275BB38E28742EF0004C9734 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		275BB390287444E4004C9734 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		275BB39228745CED004C9734 /* DetailViewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewNavigationController.swift; sourceTree = "<group>"; };
-		276B48D8286AF94300576758 /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
-		276B48DA286C4A8F00576758 /* ExistingMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingMemberViewController.swift; sourceTree = "<group>"; };
+		276B48D8286AF94300576758 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		276B48DA286C4A8F00576758 /* ExistingUserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingUserLoginViewController.swift; sourceTree = "<group>"; };
 		278D21BA2874707200F3EA79 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCheckViewController.swift; sourceTree = "<group>"; };
+		27B9946328C4E41C00B17910 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
 		27BE98CB286DD62A00766272 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
 		27C915D9287BBF4F008C2C29 /* UserInformationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationData.swift; sourceTree = "<group>"; };
 		27C915DB287BF64C008C2C29 /* MyDibsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDibsViewController.swift; sourceTree = "<group>"; };
@@ -252,9 +254,9 @@
 		2751BF0A286753C2005F9763 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2751BEDC286742E3005F9763 /* TabBarController.swift */,
-				276B48E0286C99AC00576758 /* Product */,
 				276B48DF286C996600576758 /* Login */,
+				2751BEDC286742E3005F9763 /* MainViewController.swift */,
+				276B48E0286C99AC00576758 /* Product */,
 				276B48DE286C995300576758 /* PopUpVC */,
 				278D21B92874705A00F3EA79 /* Search */,
 				27BE98CA286DD60800766272 /* MyInformation */,
@@ -381,13 +383,14 @@
 		275BB3892873F298004C9734 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				276B48D8286AF94300576758 /* ResponseResult.swift */,
+				276B48D8286AF94300576758 /* Response.swift */,
 				27F6307A2875226800E1C6C6 /* DetailData.swift */,
 				275BB35C2871AEC9004C9734 /* TodayProductData.swift */,
 				275BB38A2873F2F7004C9734 /* RealTimeAndNewProductData.swift */,
 				27D0297E28785CB40039B97F /* MyBuyDetailData.swift */,
 				27C915D9287BBF4F008C2C29 /* UserInformationData.swift */,
 				27C915DF287D6C38008C2C29 /* MyDibsData.swift */,
+				27B9946328C4E41C00B17910 /* SignUpInformation.swift */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -425,7 +428,7 @@
 			children = (
 				273110D228693AB100ECADEC /* EmailSignUpViewController.swift */,
 				270BF10B28684581000AEF14 /* LoginViewController.swift */,
-				276B48DA286C4A8F00576758 /* ExistingMemberViewController.swift */,
+				276B48DA286C4A8F00576758 /* ExistingUserLoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -688,7 +691,7 @@
 				275BB38F28742EF0004C9734 /* DetailViewController.swift in Sources */,
 				27FC524F286DAE2200A09424 /* ProductNavigationController.swift in Sources */,
 				27C915DC287BF64C008C2C29 /* MyDibsViewController.swift in Sources */,
-				276B48D9286AF94300576758 /* ResponseResult.swift in Sources */,
+				276B48D9286AF94300576758 /* Response.swift in Sources */,
 				27FC525D286DB4DA00A09424 /* NewViewController.swift in Sources */,
 				27D029722876F8AB0039B97F /* BuyViewController.swift in Sources */,
 				27D0297828771BE90039B97F /* FinalNavigationController.swift in Sources */,
@@ -703,12 +706,13 @@
 				273110D328693AB100ECADEC /* EmailSignUpViewController.swift in Sources */,
 				27C915DA287BBF50008C2C29 /* UserInformationData.swift in Sources */,
 				2751BEE3286742E3005F9763 /* Ideas.xcdatamodeld in Sources */,
+				27B9946428C4E41C00B17910 /* SignUpInformation.swift in Sources */,
 				270BF10E28684F6E000AEF14 /* UIView.swift in Sources */,
 				275BB3842873E4B6004C9734 /* RealTimeCollectionViewCell.swift in Sources */,
 				275BB34F28716085004C9734 /* BannerTableViewCell.swift in Sources */,
 				27D02976287719420039B97F /* FinalViewController.swift in Sources */,
 				275BB391287444E4004C9734 /* UIViewController.swift in Sources */,
-				2751BEDD286742E3005F9763 /* TabBarController.swift in Sources */,
+				2751BEDD286742E3005F9763 /* MainViewController.swift in Sources */,
 				27F630882875E06200E1C6C6 /* BuyPopupViewController.swift in Sources */,
 				275BB35D2871AEC9004C9734 /* TodayProductData.swift in Sources */,
 				27FC525B286DB4D000A09424 /* RealTimeViewController.swift in Sources */,
@@ -719,7 +723,7 @@
 				275BB3652872F623004C9734 /* CategoryCell.swift in Sources */,
 				275BB35828716D38004C9734 /* MenuTableViewCell.swift in Sources */,
 				27FC5259286DB4C600A09424 /* TodayViewController.swift in Sources */,
-				276B48DB286C4A8F00576758 /* ExistingMemberViewController.swift in Sources */,
+				276B48DB286C4A8F00576758 /* ExistingUserLoginViewController.swift in Sources */,
 				275BB35B2871ABB6004C9734 /* DataManager.swift in Sources */,
 				2751BED9286742E3005F9763 /* AppDelegate.swift in Sources */,
 				27F6307D28758DF000E1C6C6 /* String.swift in Sources */,

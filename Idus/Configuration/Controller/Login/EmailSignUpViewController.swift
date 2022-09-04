@@ -10,166 +10,167 @@ import Alamofire
 
 class EmailSignUpViewController: UIViewController {
     
-    @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var checkBoxV: UIView!
+    //MARK: - IBOutlet
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var checkBoxView: UIView!
     @IBOutlet weak var signUpButton: UIButton!
-    //textfield
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var pwTF: UITextField!
-    @IBOutlet weak var pwCheckTF: UITextField!
-    @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var recommendTF: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
     
-    //checkbox button
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordCheckTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var recommendTextField: UITextField!
+    
     @IBOutlet weak var allArgeeButton: UIButton!
     @IBOutlet weak var checkButton1: UIButton!
     @IBOutlet weak var checkButton2: UIButton!
     @IBOutlet weak var checkButton3: UIButton!
     @IBOutlet weak var checkButton4: UIButton!
     
-    
-    
-    
-    var viewBlurEffect: UIVisualEffectView!
+    var backgroundImage: UIImage?
+    let dataManager = DataManager()
+    //MARK: - override Method
     override func viewDidLoad() {
         super.viewDidLoad()
-        blurSet()
-        checkBoxVSet()
-        textFieldVSet()
-        buttonSet()
-        
-        
+        setUpValue()
     }
-    
-    //화면 터치시 키보드 내리기
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.presentingViewController)
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    //뒷배경 블러처리
-    func blurSet() {
-        viewBlurEffect = UIVisualEffectView()
-        viewBlurEffect.effect = UIBlurEffect(style: .systemThinMaterialDark)
+    //MARK: - setUpValue
+    func setUpValue() {
+        self.background.image = backgroundImage
+        self.emailTextField.setPlaceholder(color: .white)
+        self.emailTextField.delegate = self
+        self.nameTextField.setPlaceholder(color: .white)
+        self.nameTextField.delegate = self
+        self.passwordTextField.setPlaceholder(color: .white)
+        self.passwordTextField.delegate = self
+        self.passwordCheckTextField.setPlaceholder(color: .white)
+        self.passwordCheckTextField.delegate = self
+        self.phoneNumberTextField.setPlaceholder(color: .white)
+        self.phoneNumberTextField.delegate = self
+        self.recommendTextField.setPlaceholder(color: .white)
+        self.recommendTextField.delegate = self
         
+        self.checkBoxView.layer.cornerRadius = 4
+        self.checkBoxView.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
+        self.checkBoxView.layer.borderWidth = 1
         
-        self.backgroundImage.addSubview(viewBlurEffect)
-        viewBlurEffect.frame = self.backgroundImage.bounds
-    }
-    
-    func textFieldVSet() {
-        self.emailTF.setPlaceholder(color: .white)
-        self.emailTF.delegate = self
-        self.nameTF.setPlaceholder(color: .white)
-        self.nameTF.delegate = self
-        self.pwTF.setPlaceholder(color: .white)
-        self.pwTF.delegate = self
-        self.pwCheckTF.setPlaceholder(color: .white)
-        self.pwCheckTF.delegate = self
-        self.phoneTF.setPlaceholder(color: .white)
-        self.phoneTF.delegate = self
-        self.recommendTF.setPlaceholder(color: .white)
-        self.recommendTF.delegate = self
-    }
-    //체크박스 항목 설정
-    func checkBoxVSet() {
-        self.checkBoxV.layer.cornerRadius = 4
-        self.checkBoxV.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
-        self.checkBoxV.layer.borderWidth = 1
-    }
-    
-    func buttonSet() {
         self.signUpButton.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
         self.signUpButton.layer.cornerRadius = self.signUpButton.frame.height / 2
         self.signUpButton.layer.borderWidth = 1
     }
-    
-    func signUpResultNetWork(completion: @escaping (ResponseResult) -> Void) {
-        let parameters: Parameters = [
-            "userName": "\(self.nameTF.text!)",
-            "userEmail": "\(self.emailTF.text!)",
-            "userPw": "\(self.pwTF.text!)",
-            "userPhoneNumber": "\(self.phoneTF.text!)"
-        ]
-        AF.request(
-            Keys.baseURL + "/users",
-            method: .post,
-            parameters: parameters, encoding: JSONEncoding.default,headers: Keys.headers)
-        .responseDecodable(of: ResponseResult.self) { response in
-            switch response.result {
-            case .success(let result):
-                
-                print(result)
-                completion(result)
-            case .failure(let error):
-                print(error)
+    //MARK: - IBAction
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        switch sender {
+        case cancelButton:
+            self.dismiss(animated: true)
+
+        case allArgeeButton:
+            if allArgeeButton.isSelected {
+                allArgeeButton.isSelected = false
+                checkButton1.isSelected = false
+                checkButton2.isSelected = false
+                checkButton3.isSelected = false
+                checkButton4.isSelected = false
+            } else {
+                allArgeeButton.isSelected = true
+                checkButton1.isSelected = true
+                checkButton2.isSelected = true
+                checkButton3.isSelected = true
+                checkButton4.isSelected = true
             }
-        }
-    }
-    
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true)
-    }
-    
-    //체크박스 선택 관련
-    @IBAction func allAreee(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        checkButton1.isSelected.toggle()
-        checkButton2.isSelected.toggle()
-        checkButton3.isSelected.toggle()
-        checkButton4.isSelected.toggle()
-        print(checkButton1.isSelected)
-    }
-    @IBAction func check1(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    @IBAction func check2(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    @IBAction func check3(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    @IBAction func check4(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    
-    @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        signUpResultNetWork { signUpResult in
-            if signUpResult.isSuccess! == true {
-                print("회원가입이 완료되었습니다.")
-                self.dismiss(animated: true) {
-                    guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController else { return }
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
-                }
+            
+        case checkButton1:
+            checkButton1.isSelected.toggle()
+        case checkButton2:
+            checkButton2.isSelected.toggle()
+        case checkButton3:
+            checkButton3.isSelected.toggle()
+        case checkButton4:
+            checkButton4.isSelected.toggle()
+            
+        case signUpButton:
+//            let signUpUserInformation = SignUpUserInformation(userName: nameTextField.text, userEmail: emailTextField.text, userPw: passwordCheckTextField.text, userPhoneNumber: phoneNumberTextField.text)
+//            dataManager.postSignUpUserInformation(sender: signUpUserInformation) { response in
+//                if response.isSuccess == true {
+//                    print("회원가입이 완료되었습니다.")
+//                    //회원가입 성공시 UserDefalut에 jwt 값과 userIdx 저장
+//                    if let jwt = response.result?.jwt, let userIdx = response.result?.userIdx {
+//                        UserDefaults.standard.set(jwt, forKey: "jwt")
+//                        UserDefaults.standard.set(userIdx, forKey: "UserIdx")
+//                    }
+//                } else {
+//                    //result code에 따른 분기처리
+//                    switch response.code {
+//                    case 2015:
+//                        let alert = UIAlertController(title: "이메일을 입력해주세요", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 2016:
+//                        let alert = UIAlertController(title: "이메일 형식을 확인해주세요", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 2018:
+//                        let alert = UIAlertController(title: "이름의 길이는 20자 이하로 정해주세요.", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 2019:
+//                        let alert = UIAlertController(title: "비밀번호는 8자 이상으로 정해주세요.", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 2020:
+//                        let alert = UIAlertController(title: "비밀번호 형식을 확인해주세요.", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 2021:
+//                        let alert = UIAlertController(title: "전화번호 형식을 확인해주세요.", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 3013:
+//                        let alert = UIAlertController(title: "중복된 이메일입니다.", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    case 3015:
+//                        let alert = UIAlertController(title: "중복된 전화번호입니다.", message: nil, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+//                        self.present(alert, animated: true)
+//                    default:
+//                        break
+//                    }
+//                }
+//            }
+            self.dismiss(animated: true) {
+                guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController = mainVC
             }
-            else {
-                
-            }
+        default:
+            break
         }
     }
 }
-
-
-
-
 extension EmailSignUpViewController: UITextFieldDelegate {
-    
-    //return 버튼 누르게 되면 키보드 내려주기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailTF.resignFirstResponder()
-        nameTF.resignFirstResponder()
-        pwTF.resignFirstResponder()
-        pwCheckTF.resignFirstResponder()
-        recommendTF.resignFirstResponder()
+        switch textField {
+        case emailTextField:
+            resignFirstResponder()
+        case nameTextField:
+            resignFirstResponder()
+        case passwordTextField:
+            resignFirstResponder()
+        case passwordCheckTextField:
+            resignFirstResponder()
+        case recommendTextField:
+            resignFirstResponder()
+        default:
+            break
+        }
         return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        //전화번호 인증 구현
-//        if textField == phoneTF {
-//            let PhoneNumberCheckViewController = self.storyboard?.instantiateViewController(identifier: "PhoneNumberCheckViewController") as! PhoneNumberCheckViewController
-//            PhoneNumberCheckViewController.modalTransitionStyle = .crossDissolve
-//            PhoneNumberCheckViewController.modalPresentationStyle = .overFullScreen
-//            self.present(PhoneNumberCheckViewController, animated: true, completion: nil)
-//        }
     }
 }

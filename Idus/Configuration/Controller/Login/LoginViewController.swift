@@ -21,12 +21,11 @@ class LoginViewController: UIViewController {
     
     let backgroundImages = [UIImage(named: "1.jpg"), UIImage(named: "2.jpg"), UIImage(named: "3.jpg"), UIImage(named: "4.jpg")]
     
-    //MARK: - override Function
+    //MARK: - override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setupValue()
     }
-    //MARK: -배경화면 이미지 변경 애니메이션
     override func viewDidAppear(_ animated: Bool) {
         _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true, block: { timer in
             UIView.transition(with: self.background, duration: 3, options: .transitionCrossDissolve, animations: {
@@ -34,7 +33,10 @@ class LoginViewController: UIViewController {
             }, completion: nil)
         })
     }
+    //MARK: -setUpValue
     func setupValue() {
+        self.background.image = backgroundImages.randomElement() as! UIImage
+        
         self.imageView.backgroundColor = .LoginViewImageBackgroundColor
         self.imageView.layer.cornerRadius = 10
         self.dotLine.createDottedLine(width: 3.0, color: UIColor.white.cgColor)
@@ -48,48 +50,53 @@ class LoginViewController: UIViewController {
         self.existUserLoginButton.layer.cornerRadius = existUserLoginButton.frame.height / 2
         self.appleUserLoginButton.layer.cornerRadius = appleUserLoginButton.frame.height / 2
     }
-    
-    //MARK: -카카오로 3초만에 시작하기 버튼을 눌렀을때
-    @IBAction func kakaoSignUpButtonTapped(_ sender: UIButton) {
-        let kakaoSignUpVC = self.storyboard?.instantiateViewController(withIdentifier: "KakaoSignUpViewController") as! KakaoSignUpViewController
-        kakaoSignUpVC.modalTransitionStyle = .crossDissolve
-        kakaoSignUpVC.modalPresentationStyle = .overFullScreen
-        self.present(kakaoSignUpVC, animated: true, completion: nil)
-        
-    }
-    //MARK: -다른 방법으로 가입하기 버튼을 눌렀을때
-    @IBAction func otherSignUpButtonTapped(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: "다른 방법으로 가입하기", message: nil, preferredStyle: .actionSheet)
-        
-        let naver = UIAlertAction(title: "네이버", style: .default)
-        let facebook = UIAlertAction(title: "페이스북", style: .default)
-        let twiter = UIAlertAction(title: "트위터", style: .default)
-        let email = UIAlertAction(title: "이메일", style: .default) { _ in
-            let EmailSignUpVC = self.storyboard?.instantiateViewController(identifier: "EmailSignUpViewController") as! EmailSignUpViewController
-            EmailSignUpVC.modalTransitionStyle = .crossDissolve
-            EmailSignUpVC.modalPresentationStyle = .overFullScreen
-            self.present(EmailSignUpVC, animated: true)
+    //MARK: - IBAction
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        switch sender {
+            //MARK: - 카카오로 3초만에 시작하기
+        case kakaoSignUpButton:
+            let kakaoSignUpVC = self.storyboard?.instantiateViewController(withIdentifier: "KakaoSignUpViewController") as! KakaoSignUpViewController
+            kakaoSignUpVC.modalTransitionStyle = .crossDissolve
+            kakaoSignUpVC.modalPresentationStyle = .overFullScreen
+            kakaoSignUpVC.backgroundImage = background.image
+            self.present(kakaoSignUpVC, animated: true, completion: nil)
+            //MARK: - 다른 방법으로 가입하기
+        case otherSignUpButton:
+            let actionSheet = UIAlertController(title: "다른 방법으로 가입하기", message: nil, preferredStyle: .actionSheet)
+            
+            let naver = UIAlertAction(title: "네이버", style: .default)
+            let facebook = UIAlertAction(title: "페이스북", style: .default)
+            let twiter = UIAlertAction(title: "트위터", style: .default)
+            let email = UIAlertAction(title: "이메일", style: .default) { _ in
+                let EmailSignUpVC = self.storyboard?.instantiateViewController(identifier: "EmailSignUpViewController") as! EmailSignUpViewController
+                EmailSignUpVC.modalTransitionStyle = .crossDissolve
+                EmailSignUpVC.modalPresentationStyle = .overFullScreen
+                EmailSignUpVC.backgroundImage = self.background.image
+                self.present(EmailSignUpVC, animated: true)
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            actionSheet.addAction(naver)
+            actionSheet.addAction(facebook)
+            actionSheet.addAction(twiter)
+            actionSheet.addAction(email)
+            actionSheet.addAction(cancel)
+            present(actionSheet, animated: true, completion: nil)
+            //MARK: - 기존 회원 로그인
+        case existUserLoginButton:
+            let existingUserLoginVC = self.storyboard?.instantiateViewController(identifier: "ExistingUserLoginViewController") as! ExistingUserLoginViewController
+            existingUserLoginVC.modalTransitionStyle = .crossDissolve
+            existingUserLoginVC.modalPresentationStyle = .overFullScreen
+            existingUserLoginVC.backgroundImage = background.image
+            self.present(existingUserLoginVC, animated: true)
+            //MARK: - Apple로 로그인
+        case appleUserLoginButton:
+            break
+            //MARK: - 회원가입 없이 둘러보기
+        case noSignUpButton:
+            guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? MainViewController else { return }
+            self.view.window?.rootViewController = mainVC
+        default:
+            break
         }
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        actionSheet.addAction(naver)
-        actionSheet.addAction(facebook)
-        actionSheet.addAction(twiter)
-        actionSheet.addAction(email)
-        actionSheet.addAction(cancel)
-        present(actionSheet, animated: true, completion: nil)
-        
-    }
-    //MARK: - 기존 회원 로그인 버튼 눌렀을때
-    @IBAction func existUserLoginButtonTapped(_ sender: Any) {
-        let ExistingMemberViewController = self.storyboard?.instantiateViewController(identifier: "ExistingMemberViewController") as! ExistingMemberViewController
-        ExistingMemberViewController.modalTransitionStyle = .crossDissolve
-        ExistingMemberViewController.modalPresentationStyle = .overFullScreen
-        self.present(ExistingMemberViewController, animated: true, completion: nil)
-        
-    }
-    //MARK: - 회원가입 없이 둘러보기 버튼 눌렀을때
-    @IBAction func noSignUpButtonTapped(_ sender: UIButton) {
-        guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController else { return }
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
     }
 }
