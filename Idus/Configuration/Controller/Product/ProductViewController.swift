@@ -10,10 +10,8 @@ import Tabman
 import Pageboy
 
 class ProductViewController: TabmanViewController {
-
-//    var lastContentsOffset: CGFloat = 0.0
     
-    @IBOutlet weak var tabV: UIView!
+    @IBOutlet weak var tabView: UIView!
     private var viewControllers: [UIViewController] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class ProductViewController: TabmanViewController {
         bar.buttons.customize { button in
             button.selectedTintColor = .idusMainColor
         }
-        addBar(bar, dataSource: self, at: .custom(view: tabV, layout: nil))
+        addBar(bar, dataSource: self, at: .custom(view: tabView, layout: nil))
     }
     
     override func viewDidAppear(_ animated: Bool) {

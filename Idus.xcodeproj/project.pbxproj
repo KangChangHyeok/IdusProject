@@ -54,6 +54,7 @@
 		278D21BB2874707200F3EA79 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278D21BA2874707200F3EA79 /* SearchViewController.swift */; };
 		27AF19002869BA670009AD3E /* PhoneNumberCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */; };
 		27B9946428C4E41C00B17910 /* SignUpInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9946328C4E41C00B17910 /* SignUpInformation.swift */; };
+		27B9946628C6024300B17910 /* LoginInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B9946528C6024300B17910 /* LoginInformation.swift */; };
 		27BE98CC286DD62A00766272 /* MyInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BE98CB286DD62A00766272 /* MyInformationViewController.swift */; };
 		27C915DA287BBF50008C2C29 /* UserInformationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C915D9287BBF4F008C2C29 /* UserInformationData.swift */; };
 		27C915DC287BF64C008C2C29 /* MyDibsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C915DB287BF64C008C2C29 /* MyDibsViewController.swift */; };
@@ -130,6 +131,7 @@
 		278D21BA2874707200F3EA79 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCheckViewController.swift; sourceTree = "<group>"; };
 		27B9946328C4E41C00B17910 /* SignUpInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInformation.swift; sourceTree = "<group>"; };
+		27B9946528C6024300B17910 /* LoginInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformation.swift; sourceTree = "<group>"; };
 		27BE98CB286DD62A00766272 /* MyInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationViewController.swift; sourceTree = "<group>"; };
 		27C915D9287BBF4F008C2C29 /* UserInformationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationData.swift; sourceTree = "<group>"; };
 		27C915DB287BF64C008C2C29 /* MyDibsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDibsViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				27C915D9287BBF4F008C2C29 /* UserInformationData.swift */,
 				27C915DF287D6C38008C2C29 /* MyDibsData.swift */,
 				27B9946328C4E41C00B17910 /* SignUpInformation.swift */,
+				27B9946528C6024300B17910 /* LoginInformation.swift */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				27D02976287719420039B97F /* FinalViewController.swift in Sources */,
 				275BB391287444E4004C9734 /* UIViewController.swift in Sources */,
 				2751BEDD286742E3005F9763 /* MainViewController.swift in Sources */,
+				27B9946628C6024300B17910 /* LoginInformation.swift in Sources */,
 				27F630882875E06200E1C6C6 /* BuyPopupViewController.swift in Sources */,
 				275BB35D2871AEC9004C9734 /* TodayProductData.swift in Sources */,
 				27FC525B286DB4D000A09424 /* RealTimeViewController.swift in Sources */,

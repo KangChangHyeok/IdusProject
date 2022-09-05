@@ -12,5 +12,4 @@ class ProductNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }

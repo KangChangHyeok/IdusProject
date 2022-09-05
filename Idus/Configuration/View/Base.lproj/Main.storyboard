@@ -842,6 +842,9 @@
                                                         <state key="normal" title="네이버">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="PE8-yq-tZv"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGr-TS-vfP">
                                                         <rect key="frame" x="204" y="0.0" width="164" height="37.666666666666664"/>
@@ -849,6 +852,9 @@
                                                         <state key="normal" title="페이스북">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="I31-D0-YJb"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -861,6 +867,9 @@
                                                         <state key="normal" title="카카오톡">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="b11-qn-83Q"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hoe-Ic-y0q">
                                                         <rect key="frame" x="204" y="0.0" width="164" height="37.333333333333336"/>
@@ -868,6 +877,9 @@
                                                         <state key="normal" title="트위터">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="I2z-ru-teU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -923,35 +935,35 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HfI-DC-C1I">
                                         <rect key="frame" x="0.0" y="291" width="368" height="207"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dpkyle97@gmail.com" placeholder="이메일" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RDq-Ib-n1K">
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dpkyle97@gmail.com" placeholder="이메일" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RDq-Ib-n1K">
                                                 <rect key="frame" x="0.0" y="0.0" width="368" height="29"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lr-If-r0C">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lr-If-r0C">
                                                 <rect key="frame" x="0.0" y="39" width="368" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Dc0-VT-CLB"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="!ckdgur123" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gpP-Kl-jhb">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="!ckdgur123" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gpP-Kl-jhb">
                                                 <rect key="frame" x="0.0" y="50" width="368" height="29"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ka-AK-ocZ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ka-AK-ocZ">
                                                 <rect key="frame" x="0.0" y="89" width="368" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="adN-DN-SZF"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGJ-9T-8r2">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGJ-9T-8r2">
                                                 <rect key="frame" x="0.0" y="100" width="368" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="UIa-h4-hSX"/>
@@ -961,17 +973,17 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="loginButtonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="Vox-Dn-fnV"/>
+                                                    <action selector="buttonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="7Xe-5U-twV"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kme-nD-vN1">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kme-nD-vN1">
                                                 <rect key="frame" x="0.0" y="150" width="368" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="erG-wc-qPl"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk1-kK-yji">
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk1-kK-yji">
                                                 <rect key="frame" x="0.0" y="180" width="368" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1002,7 +1014,7 @@
                                     <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelButtonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="Zh9-5g-wjk"/>
+                                    <action selector="buttonTapped:" destination="GCY-XD-hP6" eventType="touchUpInside" id="j3b-Xz-64c"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1028,13 +1040,14 @@
                         <outlet property="appleUserButton" destination="Ycn-u8-7xv" id="zDg-FI-hvV"/>
                         <outlet property="appleUserLoginButton" destination="Ycn-u8-7xv" id="IGW-tV-n01"/>
                         <outlet property="background" destination="TeO-UJ-yyr" id="K3P-O1-DH2"/>
+                        <outlet property="cancelButton" destination="XfA-1G-r98" id="p1Q-dd-YWR"/>
                         <outlet property="dotLine" destination="BAm-dR-BZU" id="dEd-yP-Bfi"/>
                         <outlet property="emailTextField" destination="RDq-Ib-n1K" id="WOS-hc-jlv"/>
                         <outlet property="facebookUserButton" destination="CGr-TS-vfP" id="HOg-du-ibV"/>
                         <outlet property="kakaotalkUserButton" destination="bOs-YW-Hp0" id="Eo1-zl-cWo"/>
                         <outlet property="loginButton" destination="aGJ-9T-8r2" id="k0y-i6-CGf"/>
                         <outlet property="naverUserButton" destination="RMS-gP-4aN" id="juV-Ks-WX9"/>
-                        <outlet property="pwTextField" destination="gpP-Kl-jhb" id="5Dx-j7-JCa"/>
+                        <outlet property="passwordTextField" destination="gpP-Kl-jhb" id="5Dx-j7-JCa"/>
                         <outlet property="twiterUserButton" destination="Hoe-Ic-y0q" id="buU-tw-4a5"/>
                     </connections>
                 </viewController>
@@ -1123,7 +1136,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tabV" destination="hou-eD-75f" id="hQZ-zK-2WG"/>
+                        <outlet property="tabView" destination="hou-eD-75f" id="hQZ-zK-2WG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebx-jc-CRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

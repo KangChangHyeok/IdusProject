@@ -12,11 +12,11 @@ class DataManager {
     
     private let baseURL = "https://prod.servermax.shop"
     private let headers: HTTPHeaders = [
-                "Content-Type":"application/json",
-                "Accept": "application/json"
-            ]
-    //MARK: - 이메일 회원가입 API
-    func postSignUpUserInformation(sender: SignUpUserInformation, completion: @escaping (postSignUpUserInformationResponse) -> Void) {
+        "Content-Type":"application/json",
+        "Accept": "application/json"
+    ]
+    //MARK: - 1. 이메일 회원가입 API
+    func postSignUpUserInformation(sender: SignUpUserInformation, completion: @escaping (PostSignUpUserInformationResponse) -> Void) {
         guard let userName = sender.userName, let userEmail = sender.userEmail, let userPw = sender.userPw, let userPhoneNumber = sender.userPhoneNumber else { return }
         let parameters: Parameters = [
             "userName": "\(userName)",
@@ -30,7 +30,7 @@ class DataManager {
             method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default)
-        .responseDecodable(of: postSignUpUserInformationResponse.self) { response in
+        .responseDecodable(of: PostSignUpUserInformationResponse.self) { response in
             switch response.result {
             case .success(let result):
                 completion(result)
@@ -40,6 +40,29 @@ class DataManager {
             }
         }
     }
+    //MARK: - 5. 이메일 로그인 API
+    func postLoginUserInformation(sender: LoginInformation, completion: @escaping (PostLoginUserInformationResponse) -> Void) {
+        guard let userEmail = sender.userEmail, let userPw = sender.userPw else { return }
+        let parameters: Parameters = [
+            "userEmail": "\(userEmail)",
+            "userPw": "\(userPw)"
+        ]
+        AF.request(
+            baseURL + "/users/email-login",
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default)
+        .responseDecodable(of: PostLoginUserInformationResponse.self) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+                completion(result)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func postLogOut(completion: @escaping (LogOutResult) -> Void) {
         AF.request(
             "\(baseURL)/users/logout/\(UserInfo.shared.useridx!)",
@@ -61,13 +84,13 @@ class DataManager {
     
     func getUserInformation(completion: @escaping (UserInformationData) -> Void) {
         
-        AF.request("https://prod.idus-b.shop/users/\(UserInfo.shared.useridx!)",
-                   method: .get,
-                   parameters: nil,
-                   encoding: JSONEncoding.default,
-                   headers: Keys.jwtHeaders
+        AF.request(
+            "https://prod.idus-b.shop/users/\(UserInfo.shared.useridx!)",
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: Keys.jwtHeaders
         ).responseDecodable(of: UserInformationData.self) { result in
-            
             switch result.result {
             case .success(let success):
                 completion(success)
