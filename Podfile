@@ -7,4 +7,6 @@ target 'Idus' do
 
   # Pods for Idus
 pod 'MaterialComponents/BottomSheet'
+pod 'Then'
+pod 'FSPagerView'
 end

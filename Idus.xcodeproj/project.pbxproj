@@ -22,9 +22,8 @@
 		2751BEE8286742E5005F9763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2751BEE6286742E5005F9763 /* LaunchScreen.storyboard */; };
 		2751BF0128675316005F9763 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2751BF0028675316005F9763 /* Alamofire */; };
 		2751BF072867539D005F9763 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2751BF062867539D005F9763 /* Kingfisher */; };
-		275BB31C287152AB004C9734 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = 275BB31B287152AB004C9734 /* FSPagerView */; };
-		275BB34F28716085004C9734 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB34D28716085004C9734 /* BannerTableViewCell.swift */; };
-		275BB35028716085004C9734 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275BB34E28716085004C9734 /* BannerTableViewCell.xib */; };
+		275BB34F28716085004C9734 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB34D28716085004C9734 /* BannerCell.swift */; };
+		275BB35028716085004C9734 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275BB34E28716085004C9734 /* BannerCell.xib */; };
 		275BB35828716D38004C9734 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB35628716D38004C9734 /* MenuTableViewCell.swift */; };
 		275BB35928716D38004C9734 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275BB35728716D38004C9734 /* MenuTableViewCell.xib */; };
 		275BB35B2871ABB6004C9734 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB35A2871ABB6004C9734 /* DataManager.swift */; };
@@ -101,8 +100,8 @@
 		2751BEE4286742E5005F9763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2751BEE7286742E5005F9763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2751BEE9286742E5005F9763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		275BB34D28716085004C9734 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
-		275BB34E28716085004C9734 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
+		275BB34D28716085004C9734 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		275BB34E28716085004C9734 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		275BB35628716D38004C9734 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		275BB35728716D38004C9734 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		275BB35A2871ABB6004C9734 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 				275BB3882873E8FC004C9734 /* Cosmos in Frameworks */,
 				27FC5252286DB25500A09424 /* Tabman in Frameworks */,
 				2751BF072867539D005F9763 /* Kingfisher in Frameworks */,
-				275BB31C287152AB004C9734 /* FSPagerView in Frameworks */,
 				2751BF0128675316005F9763 /* Alamofire in Frameworks */,
 				2397389870D965A69ECE8F1F /* Pods_Idus.framework in Frameworks */,
 			);
@@ -201,6 +199,8 @@
 		2751BED7286742E3005F9763 /* Idus */ = {
 			isa = PBXGroup;
 			children = (
+				278FB54628C785A800F52D48 /* Resources */,
+				278FB54728C785B200F52D48 /* Sources */,
 				2751BEFE2867528B005F9763 /* Configuration */,
 				2751BEE4286742E5005F9763 /* Assets.xcassets */,
 				2751BEE9286742E5005F9763 /* Info.plist */,
@@ -224,46 +224,10 @@
 		2751BEFE2867528B005F9763 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2751BED8286742E3005F9763 /* AppDelegate.swift */,
-				2751BEDA286742E3005F9763 /* SceneDelegate.swift */,
 				27EE680B286D610300EC9B6D /* Secret */,
-				2751BF08286753B8005F9763 /* Model */,
-				2751BF09286753BD005F9763 /* View */,
-				2751BF0A286753C2005F9763 /* Controller */,
 				2751BEEF286751FB005F9763 /* Util */,
 			);
 			path = Configuration;
-			sourceTree = "<group>";
-		};
-		2751BF08286753B8005F9763 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				275BB35A2871ABB6004C9734 /* DataManager.swift */,
-				275BB3892873F298004C9734 /* Datas */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2751BF09286753BD005F9763 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2751BEE6286742E5005F9763 /* LaunchScreen.storyboard */,
-				2751BEDE286742E3005F9763 /* Main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2751BF0A286753C2005F9763 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				276B48DF286C996600576758 /* Login */,
-				2751BEDC286742E3005F9763 /* MainViewController.swift */,
-				276B48E0286C99AC00576758 /* Product */,
-				276B48DE286C995300576758 /* PopUpVC */,
-				278D21B92874705A00F3EA79 /* Search */,
-				27BE98CA286DD60800766272 /* MyInformation */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		275BB34A28715F73004C9734 /* TodayViewController */ = {
@@ -292,8 +256,8 @@
 		275BB34C28716066004C9734 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
-				275BB34D28716085004C9734 /* BannerTableViewCell.swift */,
-				275BB34E28716085004C9734 /* BannerTableViewCell.xib */,
+				275BB34D28716085004C9734 /* BannerCell.swift */,
+				275BB34E28716085004C9734 /* BannerCell.xib */,
 			);
 			path = Banner;
 			sourceTree = "<group>";
@@ -417,19 +381,9 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		276B48DE286C995300576758 /* PopUpVC */ = {
-			isa = PBXGroup;
-			children = (
-				270BF10F286898AD000AEF14 /* KakaoSignUpViewController.swift */,
-				27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */,
-			);
-			path = PopUpVC;
-			sourceTree = "<group>";
-		};
 		276B48DF286C996600576758 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				273110D228693AB100ECADEC /* EmailSignUpViewController.swift */,
 				270BF10B28684581000AEF14 /* LoginViewController.swift */,
 				276B48DA286C4A8F00576758 /* ExistingUserLoginViewController.swift */,
 			);
@@ -439,8 +393,8 @@
 		276B48E0286C99AC00576758 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				27FC524C286DA3C600A09424 /* ProductViewController.swift */,
 				27FC524E286DAE2200A09424 /* ProductNavigationController.swift */,
+				27FC524C286DA3C600A09424 /* ProductViewController.swift */,
 				27FC5253286DB3EC00A09424 /* Tab */,
 			);
 			path = Product;
@@ -452,6 +406,82 @@
 				278D21BA2874707200F3EA79 /* SearchViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		278FB54628C785A800F52D48 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2751BED8286742E3005F9763 /* AppDelegate.swift */,
+				2751BEDA286742E3005F9763 /* SceneDelegate.swift */,
+				278FB54828C785DE00F52D48 /* Storyboards */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		278FB54728C785B200F52D48 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				278FB54C28C7867100F52D48 /* Cells */,
+				278FB54928C7860A00F52D48 /* Models */,
+				278FB54B28C7861300F52D48 /* ViewControllers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		278FB54828C785DE00F52D48 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2751BEE6286742E5005F9763 /* LaunchScreen.storyboard */,
+				2751BEDE286742E3005F9763 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		278FB54928C7860A00F52D48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				275BB35A2871ABB6004C9734 /* DataManager.swift */,
+				275BB3892873F298004C9734 /* Datas */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		278FB54B28C7861300F52D48 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				276B48DF286C996600576758 /* Login */,
+				278FB54D28C7882000F52D48 /* SignUp */,
+				278FB54E28C7890800F52D48 /* Main */,
+				278D21B92874705A00F3EA79 /* Search */,
+				27BE98CA286DD60800766272 /* MyInformation */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		278FB54C28C7867100F52D48 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		278FB54D28C7882000F52D48 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				27AF18FF2869BA670009AD3E /* PhoneNumberCheckViewController.swift */,
+				270BF10F286898AD000AEF14 /* KakaoSignUpViewController.swift */,
+				273110D228693AB100ECADEC /* EmailSignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		278FB54E28C7890800F52D48 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2751BEDC286742E3005F9763 /* MainViewController.swift */,
+				276B48E0286C99AC00576758 /* Product */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		27BE98CA286DD60800766272 /* MyInformation */ = {
@@ -571,7 +601,6 @@
 				2751BF0028675316005F9763 /* Alamofire */,
 				2751BF062867539D005F9763 /* Kingfisher */,
 				27FC5251286DB25500A09424 /* Tabman */,
-				275BB31B287152AB004C9734 /* FSPagerView */,
 				275BB3872873E8FC004C9734 /* Cosmos */,
 			);
 			productName = Ideas;
@@ -606,7 +635,6 @@
 				2751BEFF28675316005F9763 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				2751BF052867539D005F9763 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				27FC5250286DB25500A09424 /* XCRemoteSwiftPackageReference "Tabman" */,
-				275BB31A287152AB004C9734 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				275BB3862873E8FC004C9734 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 2751BED6286742E3005F9763 /* Products */;
@@ -631,7 +659,7 @@
 				275BB3662872F623004C9734 /* CategoryCell.xib in Resources */,
 				27F630822875920F00E1C6C6 /* ReviewCell.xib in Resources */,
 				275BB3852873E4B6004C9734 /* RealTimeCollectionViewCell.xib in Resources */,
-				275BB35028716085004C9734 /* BannerTableViewCell.xib in Resources */,
+				275BB35028716085004C9734 /* BannerCell.xib in Resources */,
 				275BB3752873D9FF004C9734 /* Category3Cell.xib in Resources */,
 				2751BEE5286742E5005F9763 /* Assets.xcassets in Resources */,
 				275BB37F2873DD70004C9734 /* Category3CollectionViewCell.xib in Resources */,
@@ -712,7 +740,7 @@
 				27B9946428C4E41C00B17910 /* SignUpInformation.swift in Sources */,
 				270BF10E28684F6E000AEF14 /* UIView.swift in Sources */,
 				275BB3842873E4B6004C9734 /* RealTimeCollectionViewCell.swift in Sources */,
-				275BB34F28716085004C9734 /* BannerTableViewCell.swift in Sources */,
+				275BB34F28716085004C9734 /* BannerCell.swift in Sources */,
 				27D02976287719420039B97F /* FinalViewController.swift in Sources */,
 				275BB391287444E4004C9734 /* UIViewController.swift in Sources */,
 				2751BEDD286742E3005F9763 /* MainViewController.swift in Sources */,
@@ -988,14 +1016,6 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		275BB31A287152AB004C9734 /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSPagerView.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		275BB3862873E8FC004C9734 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
@@ -1024,11 +1044,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2751BF052867539D005F9763 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		275BB31B287152AB004C9734 /* FSPagerView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 275BB31A287152AB004C9734 /* XCRemoteSwiftPackageReference "FSPagerView" */;
-			productName = FSPagerView;
 		};
 		275BB3872873E8FC004C9734 /* Cosmos */ = {
 			isa = XCSwiftPackageProductDependency;

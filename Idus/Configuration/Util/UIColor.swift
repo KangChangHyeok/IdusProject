@@ -20,6 +20,12 @@ extension UIColor {
         )
     }
     
+    convenience init(red: CGFloat, green: CGFloat, blue: CGFloat) {
+        self.init(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+    }
+    convenience init(rgb: CGFloat) {
+        self.init(red: rgb/255, green: rgb/255, blue: rgb/255, alpha: 1)
+    }
     // MARK: 메인 테마 색 또는 자주 쓰는 색을 정의
     class var mainOrange: UIColor { UIColor(hex: 0xF5663F) }
     class var idusMainColor: UIColor {UIColor(hex: 0xef8345)}
