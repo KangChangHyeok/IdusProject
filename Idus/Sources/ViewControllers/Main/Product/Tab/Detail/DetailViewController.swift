@@ -121,8 +121,7 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func BackButton(_ sender: UIBarButtonItem) {
-        presentFromLeft()
-        self.dismiss(animated: false)
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func dibsonButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KakaoSignUpViewController: UIViewController {
+class KakaoLoginViewController: UIViewController {
     
     //MARK: - IBOutlet
     

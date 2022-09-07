@@ -9,13 +9,17 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
-    static let cellId = "CategoryCollectionViewCell"
-    static let className = "CategoryCollectionViewCell"
-    var productIdx : Int?
-    var productCategoryIdx : Int?
+    //MARK: - IBOutlet, property
+    
     @IBOutlet weak var imageVIew: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productReview: UILabel!
+    
+    static let cellId = "CategoryCollectionViewCell"
+    static let className = "CategoryCollectionViewCell"
+    
+    //MARK: - override Method
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

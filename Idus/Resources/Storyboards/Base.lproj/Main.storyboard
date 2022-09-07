@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kakao Sign Up View Controller-->
+        <!--Kakao Login View Controller-->
         <scene sceneID="cvE-CE-XQi">
             <objects>
-                <viewController storyboardIdentifier="KakaoSignUpViewController" id="Gbx-cY-BaZ" customClass="KakaoSignUpViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KakaoLoginViewController" id="Gbx-cY-BaZ" customClass="KakaoLoginViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3jk-7b-x7e">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -615,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6n4-BH-Mxe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3100" y="387"/>
+            <point key="canvasLocation" x="-3491" y="380"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="G2w-nM-MG6">
@@ -1059,7 +1059,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wnb-JM-Tux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4323" y="387"/>
+            <point key="canvasLocation" x="-4270" y="387"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="VDt-5P-mLy">
@@ -1113,7 +1113,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Qu-kv-TIX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Qu-kv-TIX">
                                 <rect key="frame" x="0.0" y="44" width="428" height="848"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -1627,7 +1627,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r94-RX-rJu">
-                                        <rect key="frame" x="155.33333333333334" y="88" width="262.66666666666663" height="50"/>
+                                        <rect key="frame" x="155.66666666666666" y="88" width="262.33333333333337" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-h2-aZW">
                                                 <rect key="frame" x="0.0" y="0.0" width="15.666666666666666" height="50"/>
@@ -1636,13 +1636,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RQ-NG-qzM">
-                                                <rect key="frame" x="25.666666666666661" y="0.0" width="62.333333333333343" height="50"/>
+                                                <rect key="frame" x="25.666666666666689" y="0.0" width="62.333333333333343" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pZ-T2-6Zh">
-                                                <rect key="frame" x="97.999999999999986" y="0.0" width="164.66666666666663" height="50"/>
+                                                <rect key="frame" x="98.000000000000014" y="0.0" width="164.33333333333337" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3123,10 +3123,10 @@
             </objects>
             <point key="canvasLocation" x="4603.7383177570091" y="851.40388768898492"/>
         </scene>
-        <!--Detail View Navigation Controller-->
+        <!--Detail Navigation Controller-->
         <scene sceneID="tm0-rV-Q37">
             <objects>
-                <navigationController storyboardIdentifier="DetailViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="WPW-gc-hRK" customClass="DetailViewNavigationController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DetailNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="WPW-gc-hRK" customClass="DetailNavigationController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XLL-TP-oxg">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>

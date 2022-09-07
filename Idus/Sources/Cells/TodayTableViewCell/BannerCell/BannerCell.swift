@@ -13,21 +13,19 @@ class BannerCell: UITableViewCell {
     
     //MARK: - IBOutlet, property
     
-    @IBOutlet weak var bannerV: UIView!
-    @IBOutlet weak var imagearea: FSPagerView! {
+    @IBOutlet weak var banner: FSPagerView! {
         didSet {
-            imagearea.dataSource = self
-            imagearea.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "bannerImage")
-            imagearea.itemSize = FSPagerView.automaticSize
-            imagearea.isInfinite = true
-            imagearea.automaticSlidingInterval = 3.0
+            banner.dataSource = self
+            banner.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "bannerImage")
+            banner.itemSize = FSPagerView.automaticSize
+            banner.automaticSlidingInterval = 3.0
         }
     }
     
-    static let cellId = "BannerTableViewCell"
-    static let className = "BannerTableViewCell"
+    static let cellId = "BannerCell"
+    static let className = "BannerCell"
     var bannerCount: Int = 0
-    var bannerImages = [String]()
+    var bannerImages = [Banner]()
     
     //MARK: - override Method
     
@@ -48,10 +46,9 @@ extension BannerCell: FSPagerViewDataSource {
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = imagearea.dequeueReusableCell(withReuseIdentifier: "bannerImage", at: index)
+        let cell = banner.dequeueReusableCell(withReuseIdentifier: "bannerImage", at: index)
                 cell.imageView?.contentMode = .scaleToFill
-                cell.imageView?.kf.setImage(with: URL(string: self.bannerImages[index]))
-        
+        cell.imageView?.kf.setImage(with: URL(string: self.bannerImages[index].bannerImageURL))
         return cell
     }
 }

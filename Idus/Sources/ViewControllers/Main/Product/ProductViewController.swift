@@ -26,7 +26,7 @@ class ProductViewController: TabmanViewController {
         return viewControllers
     }()
     
-    private var searchBar = UISearchBar().then {
+    private lazy var searchBar = UISearchBar().then {
         $0.placeholder = "추석 연휴 할인을 검색해보세요."
         $0.searchTextField.font = UIFont.systemFont(ofSize: 14)
         $0.tintColor = UIColor(red: 206, green: 206, blue: 206)
@@ -81,7 +81,7 @@ class ProductViewController: TabmanViewController {
         self.navigationItem.titleView = searchBar
         self.searchBar.searchTextField.rightView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
         self.searchBar.searchTextField.rightViewMode = .always
-        addBar(tabBar, dataSource: self, at: .top)
+        self.addBar(tabBar, dataSource: self, at: .top)
     }
 }
 

@@ -10,7 +10,13 @@ import Kingfisher
 class RealTimeViewController: UIViewController {
 
     let getdata = DataManager()
-    @IBOutlet weak var realTimeCollectionView: UICollectionView!
+    @IBOutlet weak var realTimeCollectionView: UICollectionView! {
+        didSet {
+            realTimeCollectionView.dataSource = self
+            realTimeCollectionView.delegate = self
+            realTimeCollectionView.register(UINib(nibName: RealTimeCollectionViewCell.className, bundle: nil), forCellWithReuseIdentifier: RealTimeCollectionViewCell.cellId)
+        }
+    }
     
     var productTitleImages = [String]()
     var productTitles = [String]()
@@ -20,9 +26,7 @@ class RealTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        realTimeCollectionView.register(UINib(nibName: RealTimeCollectionViewCell.className, bundle: nil), forCellWithReuseIdentifier: RealTimeCollectionViewCell.cellId)
-        realTimeCollectionView.dataSource = self
-        realTimeCollectionView.delegate = self
+        
         getdata.getRealTimeAndNewProductData { RealTimeAndNewProductData in
             for i in 0...RealTimeAndNewProductData.result.count - 1 {
                 self.productTitleImages.append(RealTimeAndNewProductData.result[i].productTitleImage)
@@ -76,7 +80,7 @@ extension RealTimeViewController: UICollectionViewDelegateFlowLayout {
 extension RealTimeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let detailViewNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewNavigationController") as? DetailViewNavigationController else {return}
+        guard let detailViewNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewNavigationController") as? DetailNavigationController else {return}
         detailViewNavigationController.modalPresentationStyle = .fullScreen
         DetailViewController.productIdx = productIdx[indexPath.row]
         presentFromRight()

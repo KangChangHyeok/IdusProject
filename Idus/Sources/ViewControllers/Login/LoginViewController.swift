@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
             //MARK: - 카카오로 3초만에 시작하기
             
         case kakaoSignUpButton:
-            let kakaoSignUpVC = self.storyboard?.instantiateViewController(withIdentifier: "KakaoSignUpViewController") as! KakaoSignUpViewController
+            let kakaoSignUpVC = self.storyboard?.instantiateViewController(withIdentifier: "KakaoLoginViewController") as! KakaoLoginViewController
             kakaoSignUpVC.modalTransitionStyle = .crossDissolve
             kakaoSignUpVC.modalPresentationStyle = .overFullScreen
             kakaoSignUpVC.backgroundImage = background.image

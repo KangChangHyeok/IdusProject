@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MenuTableViewCell: UITableViewCell {
+class MenuCell: UITableViewCell {
     
     
-    static let cellId = "MenuTableViewCell"
-    static let className = "MenuTableViewCell"
+    static let cellId = "MenuCell"
+    static let className = "MenuCell"
     
     
     

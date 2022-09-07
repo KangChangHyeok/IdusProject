@@ -1,7 +1,3 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let todayProductData = try? newJSONDecoder().decode(TodayProductData.self, from: jsonData)
 
 import Foundation
 
@@ -16,7 +12,7 @@ struct TodayProductData: Codable {
 // MARK: - Result
 struct TodayProductResult: Codable {
     let banners: [Banner]
-    let category1, category2, category3: [Category]
+    let category1, category2, category3: [Product]
     let recentViewProduct: [JSONAny]
 }
 
@@ -30,9 +26,9 @@ struct Banner: Codable {
 }
 
 // MARK: - Category
-struct Category: Codable {
+struct Product: Codable {
     let productIdx, productCategoryIdx: Int
-    let productTitleImage: String?
+    let productTitleImage: String
     let productTitle: String
     let reviewStarRating, count: Int
     let starRating: StarRating
@@ -308,3 +304,4 @@ class JSONAny: Codable {
         }
     }
 }
+

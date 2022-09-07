@@ -144,36 +144,28 @@ class EmailSignUpViewController: UIViewController {
                     //result code에 따른 분기처리
                     switch response.code {
                     case 2015:
-                        let alert = UIAlertController(title: "이메일을 입력해주세요", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "이메일 입력을 확인해 주세요.")
                         self.present(alert, animated: true)
                     case 2016:
-                        let alert = UIAlertController(title: "이메일 형식을 확인해주세요", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "이메일 형식을 확인해 주세요.")
                         self.present(alert, animated: true)
                     case 2018:
-                        let alert = UIAlertController(title: "이름의 길이는 20자 이하로 정해주세요.", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "이름의 길이는 20자 이하로 정해주세요.")
                         self.present(alert, animated: true)
                     case 2019:
-                        let alert = UIAlertController(title: "비밀번호는 8자 이상으로 정해주세요.", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "비밀번호는 8자 이상으로 정해주세요.")
                         self.present(alert, animated: true)
                     case 2020:
-                        let alert = UIAlertController(title: "비밀번호 형식을 확인해주세요.", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "비밀번호 형식을 확인해주세요.")
                         self.present(alert, animated: true)
                     case 2021:
-                        let alert = UIAlertController(title: "전화번호 형식을 확인해주세요.", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "전화번호 형식을 확인해주세요.")
                         self.present(alert, animated: true)
                     case 3013:
-                        let alert = UIAlertController(title: "중복된 이메일입니다.", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "중복된 이메일입니다.")
                         self.present(alert, animated: true)
                     case 3015:
-                        let alert = UIAlertController(title: "중복된 전화번호입니다.", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default))
+                        let alert = UIAlertController().createCheckAlertController(title: "중복된 전화번호입니다.")
                         self.present(alert, animated: true)
                     default:
                         break

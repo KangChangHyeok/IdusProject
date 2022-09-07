@@ -15,8 +15,8 @@ class DataManager {
         "Content-Type":"application/json",
         "Accept": "application/json"
     ]
-    //MARK: - 1. 이메일 회원가입 API
-    func postSignUpUserInformation(sender: SignUpUserInformation, completion: @escaping (PostSignUpUserInformationResponse) -> Void) {
+    //MARK: - 1. 이메일 회원가입 
+    func postSignUpUserInformation(sender: SignUpUserInformation, completion: @escaping (SignUpUserData) -> Void) {
         guard let userName = sender.userName, let userEmail = sender.userEmail, let userPw = sender.userPw, let userPhoneNumber = sender.userPhoneNumber else { return }
         let parameters: Parameters = [
             "userName": "\(userName)",
@@ -30,7 +30,7 @@ class DataManager {
             method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default)
-        .responseDecodable(of: PostSignUpUserInformationResponse.self) { response in
+        .responseDecodable(of: SignUpUserData.self) { response in
             switch response.result {
             case .success(let result):
                 completion(result)
@@ -40,8 +40,8 @@ class DataManager {
             }
         }
     }
-    //MARK: - 5. 이메일 로그인 API
-    func postLoginUserInformation(sender: LoginInformation, completion: @escaping (PostLoginUserInformationResponse) -> Void) {
+    //MARK: - 5. 이메일 로그인
+    func postLoginUserInformation(sender: LoginInformation, completion: @escaping (LoginUserData) -> Void) {
         guard let userEmail = sender.userEmail, let userPw = sender.userPw else { return }
         let parameters: Parameters = [
             "userEmail": "\(userEmail)",
@@ -52,7 +52,7 @@ class DataManager {
             method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default)
-        .responseDecodable(of: PostLoginUserInformationResponse.self) { response in
+        .responseDecodable(of: LoginUserData.self) { response in
             switch response.result {
             case .success(let result):
                 print(result)
@@ -62,6 +62,26 @@ class DataManager {
             }
         }
     }
+    
+    //MARK: - 11. 투데이 작품 전체 조회
+    
+    func getTodayProductData(completion: @escaping (TodayProductData) -> Void) {
+        AF.request(baseURL + "/products/today",
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: Keys.jwtHeaders
+        ).responseDecodable(of: TodayProductData.self) { result in
+            
+            switch result.result {
+            case .success(let success):
+                completion(success)
+            case.failure(let error):
+                print(error)
+            }
+            
+        }
+    }
+    
     
     func postLogOut(completion: @escaping (LogOutResult) -> Void) {
         AF.request(
@@ -79,6 +99,8 @@ class DataManager {
             }
         }
     }
+    
+
     
     //MARK: - API Index 10(회원 조회 API)
     
@@ -101,27 +123,7 @@ class DataManager {
         }
     }
     
-    //MARK: - API Index 11(투데이 작품 전체 조회)
-    var todayProductData: TodayProductData?
     
-    func getTodayProductData(completion: @escaping (TodayProductData) -> Void) {
-        AF.request(baseURL + "/products/today",
-                   method: .get,
-                   parameters: nil,
-                   encoding: JSONEncoding.default,
-                   headers: Keys.jwtHeaders
-        ).responseDecodable(of: TodayProductData.self) { result in
-            
-            switch result.result {
-            case .success(let success):
-                self.todayProductData = success
-                completion(self.todayProductData!)
-            case.failure(let error):
-                debugPrint(error)
-            }
-            
-        }
-    }
     //MARK: - API Index 12(작품 상세 조회)
     
     var detailData: DetailData?

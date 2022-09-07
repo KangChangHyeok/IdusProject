@@ -18,35 +18,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVz-5g-gMX">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjx-1J-yOt" customClass="FSPagerView" customModule="FSPagerView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="bannerImage" translatesAutoresizingMaskIntoConstraints="NO" id="hnn-g3-eGt" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hnn-g3-eGt" firstAttribute="leading" secondItem="iVz-5g-gMX" secondAttribute="leading" id="9bL-J8-MvX"/>
-                            <constraint firstAttribute="bottom" secondItem="hnn-g3-eGt" secondAttribute="bottom" id="Gbp-CM-9je"/>
-                            <constraint firstItem="hnn-g3-eGt" firstAttribute="top" secondItem="iVz-5g-gMX" secondAttribute="top" id="LfJ-Lt-bKr"/>
-                            <constraint firstAttribute="trailing" secondItem="hnn-g3-eGt" secondAttribute="trailing" id="fbr-y7-32D"/>
-                            <constraint firstAttribute="height" constant="200" id="wiM-BE-dee"/>
+                            <constraint firstAttribute="height" constant="200" id="XJj-aS-wLR"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isInfinite" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="iVz-5g-gMX" secondAttribute="bottom" id="ARv-7m-qMf"/>
-                    <constraint firstAttribute="trailing" secondItem="iVz-5g-gMX" secondAttribute="trailing" id="Am7-sD-81d"/>
-                    <constraint firstItem="iVz-5g-gMX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GfL-FO-V5G"/>
-                    <constraint firstItem="iVz-5g-gMX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b9x-PG-3AR"/>
+                    <constraint firstItem="tjx-1J-yOt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2vu-QG-L7u"/>
+                    <constraint firstAttribute="bottom" secondItem="tjx-1J-yOt" secondAttribute="bottom" id="5FS-mr-g5o"/>
+                    <constraint firstItem="tjx-1J-yOt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uvj-n3-oNH"/>
+                    <constraint firstAttribute="trailing" secondItem="tjx-1J-yOt" secondAttribute="trailing" id="ZIi-n4-CId"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bannerV" destination="iVz-5g-gMX" id="UdB-GM-NYY"/>
-                <outlet property="imagearea" destination="hnn-g3-eGt" id="PCZ-60-GAD"/>
+                <outlet property="banner" destination="tjx-1J-yOt" id="pBP-iE-mbU"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
         </tableViewCell>
@@ -54,9 +46,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
