@@ -35,11 +35,9 @@
 		275BB36B28731113004C9734 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275BB36928731113004C9734 /* CategoryCollectionViewCell.xib */; };
 		275BB3842873E4B6004C9734 /* RealTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB3822873E4B6004C9734 /* RealTimeCollectionViewCell.swift */; };
 		275BB3852873E4B6004C9734 /* RealTimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275BB3832873E4B6004C9734 /* RealTimeCollectionViewCell.xib */; };
-		275BB3882873E8FC004C9734 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 275BB3872873E8FC004C9734 /* Cosmos */; };
 		275BB38B2873F2F8004C9734 /* RealTimeAndNewProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB38A2873F2F7004C9734 /* RealTimeAndNewProductData.swift */; };
 		275BB38F28742EF0004C9734 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB38E28742EF0004C9734 /* DetailViewController.swift */; };
 		275BB391287444E4004C9734 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB390287444E4004C9734 /* UIViewController.swift */; };
-		275BB39328745CED004C9734 /* DetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BB39228745CED004C9734 /* DetailNavigationController.swift */; };
 		276B48D9286AF94300576758 /* SignUpUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B48D8286AF94300576758 /* SignUpUserData.swift */; };
 		276B48DB286C4A8F00576758 /* ExistingUserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B48DA286C4A8F00576758 /* ExistingUserLoginViewController.swift */; };
 		276CA33C28C8618D007A82BE /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CA33B28C8618D007A82BE /* UIAlertController.swift */; };
@@ -110,7 +108,6 @@
 		275BB38A2873F2F7004C9734 /* RealTimeAndNewProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeAndNewProductData.swift; sourceTree = "<group>"; };
 		275BB38E28742EF0004C9734 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		275BB390287444E4004C9734 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		275BB39228745CED004C9734 /* DetailNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigationController.swift; sourceTree = "<group>"; };
 		276B48D8286AF94300576758 /* SignUpUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserData.swift; sourceTree = "<group>"; };
 		276B48DA286C4A8F00576758 /* ExistingUserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingUserLoginViewController.swift; sourceTree = "<group>"; };
 		276CA33B28C8618D007A82BE /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
@@ -155,7 +152,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275BB3882873E8FC004C9734 /* Cosmos in Frameworks */,
 				27FC5252286DB25500A09424 /* Tabman in Frameworks */,
 				2751BF072867539D005F9763 /* Kingfisher in Frameworks */,
 				2751BF0128675316005F9763 /* Alamofire in Frameworks */,
@@ -314,7 +310,6 @@
 		278B39EA28C8E0D000F80E09 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				275BB39228745CED004C9734 /* DetailNavigationController.swift */,
 				275BB38E28742EF0004C9734 /* DetailViewController.swift */,
 			);
 			path = Detail;
@@ -527,7 +522,6 @@
 				2751BF0028675316005F9763 /* Alamofire */,
 				2751BF062867539D005F9763 /* Kingfisher */,
 				27FC5251286DB25500A09424 /* Tabman */,
-				275BB3872873E8FC004C9734 /* Cosmos */,
 			);
 			productName = Ideas;
 			productReference = 2751BED5286742E3005F9763 /* Idus.app */;
@@ -561,7 +555,6 @@
 				2751BEFF28675316005F9763 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				2751BF052867539D005F9763 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				27FC5250286DB25500A09424 /* XCRemoteSwiftPackageReference "Tabman" */,
-				275BB3862873E8FC004C9734 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 2751BED6286742E3005F9763 /* Products */;
 			projectDirPath = "";
@@ -688,7 +681,6 @@
 				2751BEDB286742E3005F9763 /* SceneDelegate.swift in Sources */,
 				27D0297D28785B540039B97F /* MyBuyViewController.swift in Sources */,
 				278B39E728C8C8E900F80E09 /* LoginUserData.swift in Sources */,
-				275BB39328745CED004C9734 /* DetailNavigationController.swift in Sources */,
 				27AF19002869BA670009AD3E /* PhoneNumberCheckViewController.swift in Sources */,
 				27EE680D286D610B00EC9B6D /* Keys.swift in Sources */,
 				27FC524D286DA3C600A09424 /* ProductViewController.swift in Sources */,
@@ -936,14 +928,6 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		275BB3862873E8FC004C9734 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		27FC5250286DB25500A09424 /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
@@ -964,11 +948,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2751BF052867539D005F9763 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		275BB3872873E8FC004C9734 /* Cosmos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 275BB3862873E8FC004C9734 /* XCRemoteSwiftPackageReference "Cosmos" */;
-			productName = Cosmos;
 		};
 		27FC5251286DB25500A09424 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;

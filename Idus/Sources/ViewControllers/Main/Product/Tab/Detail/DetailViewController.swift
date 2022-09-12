@@ -11,14 +11,8 @@ import Cosmos
 import MaterialComponents.MaterialBottomSheet
 
 class DetailViewController: UIViewController {
-    let getdata = DataManager()
-    //todayView에서 productIdx를 넘겨 받음
-    static var productIdx: Int?
     
-    var images = [String]()
-    var reviewCount = 0
-    var reviewStarRating = [Double]()
-    var reviewText = [String]()
+    //MARK: - IBOutlet, property
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
@@ -29,24 +23,39 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var productDiscountPrice: UILabel!
     @IBOutlet weak var productRealPrice: UILabel!
     @IBOutlet weak var productSavePoint: UILabel!
-    @IBOutlet weak var deliveryView: UIView!
+    @IBOutlet weak var deliveryView: UIView! {
+        didSet {
+            self.deliveryView.layer.borderWidth = 2
+            self.deliveryView.layer.borderColor = UIColor.lightGray.cgColor
+            self.deliveryView.layer.cornerRadius = 4
+        }
+    }
     @IBOutlet weak var reviewCollectionView: UICollectionView!
-    
-    
-    
-    //최히단 구매하기 뷰
     @IBOutlet weak var buyView: UIView!
-    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var buyButton: UIButton! {
+        didSet {
+            buyButton.backgroundColor = .idusMainColor
+            buyButton.layer.cornerRadius = 4
+        }
+    }
+    private let dataManager = DataManager()
+    static var productIdx: Int?
     
+    var images = [String]()
+    var reviewCount = 0
+    var reviewStarRating = [Double]()
+    var reviewText = [String]()
+    
+    //MARK: - override Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
         SetData()
-        setUI()
     }
+    
     func SetData() {
-        getdata.getDetailData { DetailData in
+        dataManager.getDetailData { DetailData in
             guard let detailData = DetailData.result else {return}
             for i in 0...detailData.productImages.count - 1 {
                 self.images.append(detailData.productImages[i].productImageUrl!)
@@ -85,20 +94,8 @@ class DetailViewController: UIViewController {
                 }
                 self.reviewCollectionView.reloadData()
             }
-            
         }
-        
     }
-    
-    func setUI() {
-        self.deliveryView.layer.borderWidth = 2
-        self.deliveryView.layer.borderColor = UIColor.lightGray.cgColor
-        self.deliveryView.layer.cornerRadius = 4
-        buyButton.backgroundColor = .idusMainColor
-        buyButton.layer.cornerRadius = 4
-        
-    }
-    
     
     func setCollectionView() {
         reviewCollectionView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellWithReuseIdentifier: ReviewCell.cellId)
@@ -126,12 +123,12 @@ class DetailViewController: UIViewController {
     @IBAction func dibsonButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
         if sender.isSelected == true {
-            getdata.postDibsonData { CardResigsterResult in
+            dataManager.postDibsonData { CardResigsterResult in
                 print(CardResigsterResult)
             }
         }
         else {
-            getdata.patchDibsonData { CardResigsterResult in
+            dataManager.patchDibsonData { CardResigsterResult in
                 print(CardResigsterResult)
             }
         }

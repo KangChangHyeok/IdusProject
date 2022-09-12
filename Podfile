@@ -9,4 +9,5 @@ target 'Idus' do
 pod 'MaterialComponents/BottomSheet'
 pod 'Then'
 pod 'FSPagerView'
+pod 'Cosmos', '~> 23.0'
 end

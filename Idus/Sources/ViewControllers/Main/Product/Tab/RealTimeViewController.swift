@@ -8,8 +8,9 @@
 import UIKit
 import Kingfisher
 class RealTimeViewController: UIViewController {
-
-    let getdata = DataManager()
+    
+    //MARK: - IBOutlet, property
+    
     @IBOutlet weak var realTimeCollectionView: UICollectionView! {
         didSet {
             realTimeCollectionView.dataSource = self
@@ -17,47 +18,47 @@ class RealTimeViewController: UIViewController {
             realTimeCollectionView.register(UINib(nibName: RealTimeCollectionViewCell.className, bundle: nil), forCellWithReuseIdentifier: RealTimeCollectionViewCell.cellId)
         }
     }
+    private let dataManager = DataManager()
+    private var products = [RealTimeAndNewResult]()
+    private var starRating = [Double]()
     
-    var productTitleImages = [String]()
-    var productTitles = [String]()
-    var starRatings = [Double]()
-    var productReviewContents = [String?]()
-    var productIdx = [Int]()
+    //MARK: - override Method
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        getdata.getRealTimeAndNewProductData { RealTimeAndNewProductData in
-            for i in 0...RealTimeAndNewProductData.result.count - 1 {
-                self.productTitleImages.append(RealTimeAndNewProductData.result[i].productTitleImage)
-                self.productTitles.append(RealTimeAndNewProductData.result[i].productTitle)
-                self.starRatings.append(Double(RealTimeAndNewProductData.result[i].reviewStarRating) / Double(RealTimeAndNewProductData.result[i].count))
-                self.productIdx.append(RealTimeAndNewProductData.result[i].productIdx)
-                if self.starRatings[i].isNaN {
-                    self.starRatings[i] = 0.0
-                }
-                
-                self.productReviewContents.append(RealTimeAndNewProductData.result[i].reviewContent)
-            }
-            print(self.starRatings)
-            self.realTimeCollectionView.reloadData()
-        }
+    
     }
 }
 
+//MARK: - extension
+
 extension RealTimeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productTitles.count
+        
+        dataManager.getRealTimeAndNewProductData { RealTimeAndNewProductData in
+            self.products = RealTimeAndNewProductData.result
+            self.products.forEach {
+                if (Double($0.reviewStarRating) / Double($0.count)).isNaN {
+                    self.starRating.append(0.0)
+                } else {
+                    self.starRating.append(round((Double($0.reviewStarRating) / Double($0.count)) * 10) / 10)
+                }
+            }
+            self.realTimeCollectionView.reloadData()
+        }
+        
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RealTimeCollectionViewCell.cellId, for: indexPath) as! RealTimeCollectionViewCell
-            cell.imageVIew.kf.setImage(with: URL(string: productTitleImages[indexPath.row]))
-            cell.imageVIew.contentMode = .scaleToFill
-            cell.productTitle.text = self.productTitles[indexPath.row]
-            cell.reviewContent.text = self.productReviewContents[indexPath.row]
-        cell.starRating.rating = Double(self.starRatings[indexPath.row])
         
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RealTimeCollectionViewCell.cellId, for: indexPath) as! RealTimeCollectionViewCell
+        cell.imageVIew.kf.setImage(with: URL(string: self.products[indexPath.row].productTitleImage))
+        cell.imageVIew.contentMode = .scaleToFill
+        cell.productTitle.text = self.products[indexPath.row].productTitle
+        cell.reviewContent.text = self.products[indexPath.row].reviewContent
+        cell.starRating.rating = self.starRating[indexPath.row]
         return cell
     }
     
@@ -80,12 +81,8 @@ extension RealTimeViewController: UICollectionViewDelegateFlowLayout {
 extension RealTimeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let detailViewNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewNavigationController") as? DetailNavigationController else {return}
-        detailViewNavigationController.modalPresentationStyle = .fullScreen
-        DetailViewController.productIdx = productIdx[indexPath.row]
-        presentFromRight()
-                present(detailViewNavigationController, animated: false) {
-                    
-        }
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        DetailViewController.productIdx = self.products[indexPath.row].productIdx
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

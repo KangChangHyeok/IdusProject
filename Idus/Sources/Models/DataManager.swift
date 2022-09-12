@@ -41,6 +41,7 @@ class DataManager {
         }
     }
     //MARK: - 5. 이메일 로그인
+    
     func postLoginUserInformation(sender: LoginInformation, completion: @escaping (LoginUserData) -> Void) {
         guard let userEmail = sender.userEmail, let userPw = sender.userPw else { return }
         let parameters: Parameters = [
@@ -100,8 +101,6 @@ class DataManager {
         }
     }
     
-
-    
     //MARK: - API Index 10(회원 조회 API)
     
     func getUserInformation(completion: @escaping (UserInformationData) -> Void) {
@@ -124,49 +123,38 @@ class DataManager {
     }
     
     
-    //MARK: - API Index 12(작품 상세 조회)
+    //MARK: - 12. 작품 상세 조회
     
-    var detailData: DetailData?
     func getDetailData(completion: @escaping (DetailData) -> Void) {
         
         AF.request(baseURL + "/products/\(DetailViewController.productIdx!)",
                    method: .get,
-                   parameters: nil,
                    encoding: JSONEncoding.default,
                    headers: Keys.jwtHeaders
         ).responseDecodable(of: DetailData.self) { result in
-            
             switch result.result {
             case .success(let success):
-                self.detailData = success
-                completion(self.detailData!)
+                completion(success)
             case.failure(let error):
                 debugPrint(error)
             }
-            
         }
     }
     
-    
-    //MARK: - API Index 13(실시간, NEW 작품 조회 API)
-    
-    var realTimeAndNewProductData: RealTimeAndNewProductData?
+    //MARK: - 13. 실시간, NEW 작품 조회 API
     
     func getRealTimeAndNewProductData(completion: @escaping (RealTimeAndNewProductData) -> Void) {
         AF.request(baseURL + "/products/real-time",
                    method: .get,
-                   parameters: nil,
                    encoding: JSONEncoding.default,
                    headers: Keys.jwtHeaders
         ).responseDecodable(of: RealTimeAndNewProductData.self) { result in
             
             switch result.result {
             case .success(let success):
-                self.realTimeAndNewProductData = success
-                completion(self.realTimeAndNewProductData!)
-                
+                completion(success)
             case.failure(let error):
-                debugPrint(error)
+                print(error)
             }
             
         }
