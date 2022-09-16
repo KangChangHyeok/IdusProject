@@ -1170,7 +1170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cC8-Wy-yMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="2282.7213822894169"/>
+            <point key="canvasLocation" x="300" y="2288"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="eNM-AU-D7B">
@@ -1184,11 +1184,12 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="848"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wla-rS-bzf">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="892.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1017.3333333333334"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="DetailViewController" translatesAutoresizingMaskIntoConstraints="NO" id="HgK-Ad-oyM">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivc-4z-srz" customClass="FSPagerView" customModule="FSPagerView">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="424"/>
-                                            </imageView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkd-yI-iw1">
                                                 <rect key="frame" x="0.0" y="424" width="428" height="10"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1415,7 +1416,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ung-EO-BRD">
-                                                <rect key="frame" x="0.0" y="714" width="428" height="178.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="714" width="428" height="203.33333333333337"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="omK-bP-nWB">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -1425,6 +1426,10 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTE-5h-qZs">
+                                                <rect key="frame" x="0.0" y="917.33333333333337" width="428" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Ung-EO-BRD" firstAttribute="height" secondItem="Wla-rS-bzf" secondAttribute="height" multiplier="0.2" id="zcF-3H-692"/>
@@ -1432,12 +1437,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HgK-Ad-oyM" firstAttribute="height" secondItem="2Mi-hs-nZw" secondAttribute="height" multiplier="0.5" id="1wt-oC-YQn"/>
                                     <constraint firstItem="Wla-rS-bzf" firstAttribute="width" secondItem="2Mi-hs-nZw" secondAttribute="width" id="9Zi-ap-1u8"/>
                                     <constraint firstItem="Wla-rS-bzf" firstAttribute="trailing" secondItem="6e6-gy-fWq" secondAttribute="trailing" id="PZq-vD-tb2"/>
                                     <constraint firstItem="Dx3-AK-DYN" firstAttribute="height" secondItem="2Mi-hs-nZw" secondAttribute="height" multiplier="0.18" id="XlI-LH-Xn4"/>
                                     <constraint firstItem="Wla-rS-bzf" firstAttribute="top" secondItem="6e6-gy-fWq" secondAttribute="top" id="ZcS-lC-2Ff"/>
                                     <constraint firstItem="Wla-rS-bzf" firstAttribute="bottom" secondItem="6e6-gy-fWq" secondAttribute="bottom" id="euC-Xj-LLs"/>
+                                    <constraint firstItem="Ivc-4z-srz" firstAttribute="height" secondItem="2Mi-hs-nZw" secondAttribute="height" multiplier="0.5" id="oAa-3w-W36"/>
                                     <constraint firstItem="Wla-rS-bzf" firstAttribute="leading" secondItem="6e6-gy-fWq" secondAttribute="leading" id="qJ5-4V-WlU"/>
                                     <constraint firstItem="59h-UW-Jb3" firstAttribute="height" secondItem="2Mi-hs-nZw" secondAttribute="height" multiplier="0.15" id="roR-xd-byq"/>
                                 </constraints>
@@ -1462,9 +1467,6 @@
                                                         </state>
                                                         <state key="selected" backgroundImage="heart.fill" catalog="system"/>
                                                         <state key="highlighted" image="heart.fill" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="dibsonButtonTapped:" destination="fhz-Mu-D7j" eventType="touchUpInside" id="kMk-af-pE8"/>
-                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="찜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-D1-krU">
                                                         <rect key="frame" x="0.0" y="35" width="46" height="15"/>
@@ -1514,7 +1516,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="buyButtonTapped:" destination="fhz-Mu-D7j" eventType="touchUpInside" id="Mue-A0-Re9"/>
+                                                    <action selector="buttonTapped:" destination="fhz-Mu-D7j" eventType="touchUpInside" id="9MT-uJ-ule"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1544,30 +1546,16 @@
                             <constraint firstItem="4p2-fS-ljC" firstAttribute="top" secondItem="sg9-uX-hFy" secondAttribute="top" id="j49-tj-7eB"/>
                             <constraint firstItem="4p2-fS-ljC" firstAttribute="leading" secondItem="sg9-uX-hFy" secondAttribute="leading" id="jOs-64-gK4"/>
                             <constraint firstItem="sg9-uX-hFy" firstAttribute="bottom" secondItem="4p2-fS-ljC" secondAttribute="bottom" id="max-Sc-e0w"/>
+                            <constraint firstItem="PTE-5h-qZs" firstAttribute="height" secondItem="XAF-2U-1Wq" secondAttribute="height" id="npT-HP-ald"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="u9g-YR-Cgd">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Keu-dH-lvt">
-                            <imageReference key="image" image="arrow.backward" catalog="system" symbolScale="large"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="BackButton:" destination="fhz-Mu-D7j" id="6Mb-am-hq4"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="rqj-RV-FMo">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="goCart:" destination="fhz-Mu-D7j" id="xQk-ST-YAH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="buyButton" destination="bnX-S1-deC" id="kCr-r5-2WY"/>
                         <outlet property="buyView" destination="XAF-2U-1Wq" id="3FM-1n-hCS"/>
                         <outlet property="deliveryView" destination="kCw-sj-e0N" id="2TX-H5-fWI"/>
-                        <outlet property="imageView" destination="HgK-Ad-oyM" id="PVf-fj-E0p"/>
                         <outlet property="productDiscountPrice" destination="Dx5-OT-UA4" id="RPB-Nf-qCp"/>
                         <outlet property="productDiscountRate" destination="INv-xD-Ihe" id="NFN-MA-Jos"/>
+                        <outlet property="productImages" destination="Ivc-4z-srz" id="jo6-TM-GFe"/>
                         <outlet property="productRealPrice" destination="vVv-Dh-a0e" id="6aB-cd-6Rn"/>
                         <outlet property="productSavePoint" destination="hNT-La-Wx2" id="i9G-6i-v1o"/>
                         <outlet property="productTitle" destination="f8W-4s-Wd2" id="U0k-ze-hUo"/>
@@ -1623,7 +1611,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="TapBuyButton:" destination="WVi-r7-DAh" eventType="touchUpInside" id="909-KX-pLl"/>
+                                            <action selector="buttonTapped:" destination="WVi-r7-DAh" eventType="touchUpInside" id="M6t-uI-wac"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r94-RX-rJu">
@@ -1675,14 +1663,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="butButton" destination="khe-w7-es5" id="cs6-gm-tir"/>
+                        <outlet property="buyButton" destination="khe-w7-es5" id="cs6-gm-tir"/>
                         <outlet property="price" destination="3pZ-T2-6Zh" id="JhZ-rf-aOL"/>
                         <outlet property="productcount" destination="koL-wD-RFb" id="VSq-TG-4y7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wb-kf-wJ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000" y="3075.8099352051836"/>
+            <point key="canvasLocation" x="2969" y="3082"/>
         </scene>
         <!--Buy View Controller-->
         <scene sceneID="yW2-at-7O0">

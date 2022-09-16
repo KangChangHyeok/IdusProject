@@ -9,13 +9,19 @@ import UIKit
 import Kingfisher
 import Cosmos
 import MaterialComponents.MaterialBottomSheet
+import FSPagerView
 
 class DetailViewController: UIViewController {
     
     //MARK: - IBOutlet, property
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var productImages: FSPagerView! {
+        didSet {
+            self.productImages.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "productImages")
+            self.productImages.dataSource = self
+        }
+    }
     @IBOutlet weak var sellerNickName: UILabel!
     @IBOutlet weak var starRating: CosmosView!
     @IBOutlet weak var productTitle: UILabel!
@@ -30,7 +36,13 @@ class DetailViewController: UIViewController {
             self.deliveryView.layer.cornerRadius = 4
         }
     }
-    @IBOutlet weak var reviewCollectionView: UICollectionView!
+    @IBOutlet weak var reviewCollectionView: UICollectionView! {
+        didSet {
+            reviewCollectionView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellWithReuseIdentifier: ReviewCell.cellId)
+            reviewCollectionView.dataSource = self
+            reviewCollectionView.delegate = self
+        }
+    }
     @IBOutlet weak var buyView: UIView!
     @IBOutlet weak var buyButton: UIButton! {
         didSet {
@@ -39,111 +51,60 @@ class DetailViewController: UIViewController {
         }
     }
     private let dataManager = DataManager()
-    static var productIdx: Int?
-    
-    var images = [String]()
+    private var detailResult: DetailResult?
     var reviewCount = 0
     var reviewStarRating = [Double]()
     var reviewText = [String]()
+    var productIdx: Int?
     
     //MARK: - override Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionView()
-        SetData()
+        setupValue()
     }
-    
-    func SetData() {
-        dataManager.getDetailData { DetailData in
-            guard let detailData = DetailData.result else {return}
-            for i in 0...detailData.productImages.count - 1 {
-                self.images.append(detailData.productImages[i].productImageUrl!)
-            }
-            self.imageView.kf.setImage(with: URL(string: self.images[0]))
-            self.sellerNickName.text = detailData.sellerInfo?.sellerNickname
-            if (Double((detailData.sellerInfo?.reviewStarRating)!) / Double((detailData.sellerInfo?.count)!)).isNaN {
+    func setupValue() {
+        dataManager.getDetailData(productIdx: self.productIdx) { data in
+            self.detailResult = data.result
+            self.sellerNickName.text = self.detailResult?.sellerInfo?.sellerNickname
+            if (Double(((self.detailResult?.sellerInfo?.reviewStarRating)!)) / Double((self.detailResult?.sellerInfo?.count)!)).isNaN {
                 self.starRating.rating = 0.0
                 self.starRating.text = ""
             } else {
-                self.starRating.rating = Double((detailData.sellerInfo?.reviewStarRating)!) / Double((detailData.sellerInfo?.count)!)
+                self.starRating.rating = (round(Double((self.detailResult?.sellerInfo?.reviewStarRating)!) / Double((self.detailResult?.sellerInfo?.count)!)) * 10) / 10
             }
             self.starRating.text = self.starRating.rating.description
+            self.productTitle.text = self.detailResult?.product?.productTitle
+            self.productDiscountRate.text = self.detailResult?.product?.productDiscountRate?.description
+            self.productDiscountPrice.text = self.detailResult?.product?.productDiscountPrice
+            self.productRealPrice.attributedText = self.detailResult?.product?.productRealPrice?.strikeThrough()
+            self.productSavePoint.text = (self.detailResult?.product?.productSavePoint!.description ?? "") + "P"
+            self.productImages.reloadData()
+        }
+    }
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        switch sender {
+        case buyButton:
+            // 바텀 시트로 쓰일 뷰컨트롤러 생성
+            let buyPopvc = storyboard?.instantiateViewController(withIdentifier: "BuyPopupViewController") as! BuyPopupViewController
             
-            
-            self.productTitle.text = detailData.product?.productTitle!
-            self.productDiscountRate.text = detailData.product?.productDiscountRate?.description
-            self.productDiscountPrice.text = detailData.product?.productDiscountPrice?.description
-            self.productRealPrice.text = detailData.product?.productRealPrice?.description
-            self.productRealPrice.attributedText = self.productRealPrice.text?.strikeThrough()
-            self.productSavePoint.text = (detailData.product?.productSavePoint!.description ?? "") + "P"
-            
-            //상세보기 리뷰
-            self.reviewCount = detailData.productReview!.count
-            if self.reviewCount == 0 {
-                print("리뷰 없음")
-            } else {
-                for i in 0...self.reviewCount - 1 {
-                    self.reviewStarRating.append(Double(detailData.productReview![i].reviewStarRating!))
-                    if self.reviewStarRating[i].isNaN {
-                        self.reviewStarRating[i] = 0.0
-                    }
-                }
-                for i in 0...self.reviewCount - 1 {
-                    self.reviewText.append(detailData.productReview![i].reviewContent!)
-                }
-                self.reviewCollectionView.reloadData()
-            }
+            // MDC 바텀 시트로 설정
+            let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: buyPopvc)
+            bottomSheet.mdc_bottomSheetPresentationController?.preferredSheetHeight = 200
+            buyPopvc.productPrice = self.productDiscountPrice.text
+            // 보여주기
+            present(bottomSheet, animated: true)
+        default:
+            break
         }
-    }
-    
-    func setCollectionView() {
-        reviewCollectionView.register(UINib(nibName: ReviewCell.className, bundle: nil), forCellWithReuseIdentifier: ReviewCell.cellId)
-        reviewCollectionView.dataSource = self
-        reviewCollectionView.delegate = self
-    }
-    
-    @IBAction func buyButtonTapped(_ sender: UIButton) {
-        // 바텀 시트로 쓰일 뷰컨트롤러 생성
-        let vc = storyboard?.instantiateViewController(withIdentifier: "BuyPopupViewController") as! BuyPopupViewController
-        
-        // MDC 바텀 시트로 설정
-        let bottomSheet: MDCBottomSheetController = MDCBottomSheetController(contentViewController: vc)
-        bottomSheet.mdc_bottomSheetPresentationController?.preferredSheetHeight = 200
-        vc.senderPrice = self.productDiscountPrice.text!.description
-        // 보여주기
-        present(bottomSheet, animated: true) {
-        }
-    }
-    
-    
-    @IBAction func BackButton(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    @IBAction func dibsonButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        if sender.isSelected == true {
-            dataManager.postDibsonData { CardResigsterResult in
-                print(CardResigsterResult)
-            }
-        }
-        else {
-            dataManager.patchDibsonData { CardResigsterResult in
-                print(CardResigsterResult)
-            }
-        }
-        
-    }
-    @IBAction func goCart(_ sender: UIBarButtonItem) {
     }
 }
+//MARK: - extension
 
 extension DetailViewController: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return reviewCount
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCell.cellId, for: indexPath) as! ReviewCell
         cell.starRating.rating = Double(self.reviewStarRating[indexPath.row])
@@ -154,24 +115,27 @@ extension DetailViewController: UICollectionViewDataSource {
         cell.layer.shadowRadius = 3
         return cell
     }
-    
-    
 }
-
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        guard let flow = collectionViewLayout as? UICollectionViewFlowLayout else {
-            return CGSize()
-        }
+        guard let flow = collectionViewLayout as? UICollectionViewFlowLayout else {return CGSize()}
         flow.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let height: CGFloat = collectionView.frame.height - 10
         let width: CGFloat = (collectionView.frame.width / 1.3) - 20
-        
-        
-        
         return CGSize(width: width, height:height)
+    }
+}
+extension DetailViewController: FSPagerViewDataSource {
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        guard let count = detailResult?.productImages.count else {return 0}
+        return count
+    }
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "productImages", at: index)
+        guard let image = self.detailResult?.productImages[index].productImageUrl else {return FSPagerViewCell()}
+        cell.imageView?.contentMode = .scaleToFill
+        cell.imageView?.kf.setImage(with: URL(string: image))
+        return cell
     }
 }
 

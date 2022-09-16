@@ -17,7 +17,6 @@ class KakaoLoginViewController: UIViewController {
         }
     }
     @IBOutlet weak var backButton: UIButton!
-    
     var backgroundImage: UIImage?
     
     //MARK: - override Method

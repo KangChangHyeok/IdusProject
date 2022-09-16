@@ -63,7 +63,6 @@ class LoginViewController: UIViewController {
     //MARK: -function
     
     func setupValue() {
-        
     }
     
     func changeBackgroundImageAnimation() {
@@ -73,6 +72,7 @@ class LoginViewController: UIViewController {
             }, completion: nil)
         })
     }
+    
     //MARK: - IBAction
     
     @IBAction func buttonTapped(_ sender: UIButton) {

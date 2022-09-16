@@ -82,7 +82,7 @@ extension RealTimeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        DetailViewController.productIdx = self.products[indexPath.row].productIdx
+        detailVC.productIdx = self.products[indexPath.row].productIdx
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

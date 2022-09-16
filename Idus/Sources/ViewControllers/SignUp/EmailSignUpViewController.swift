@@ -92,7 +92,6 @@ class EmailSignUpViewController: UIViewController {
     //MARK: - setUpValue
     
     func setUpValue() {
-        
     }
     
     //MARK: - IBAction

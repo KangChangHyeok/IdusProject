@@ -70,8 +70,44 @@ class DataManager {
         AF.request(baseURL + "/products/today",
                    method: .get,
                    encoding: JSONEncoding.default,
+                   headers: Keys.jwtHeaders)
+        .responseDecodable(of: TodayProductData.self) { response in
+            switch response.result {
+            case .success(let success):
+                completion(success)
+            case.failure(let error):
+                print(error)
+            }
+            
+        }
+    }
+    
+    //MARK: - 12. 작품 상세 조회
+    
+    func getDetailData(productIdx: Int?, completion: @escaping (DetailData) -> Void) {
+        guard let productIdx = productIdx else { return }
+        AF.request(baseURL + "/products/\(productIdx)",
+                   method: .get,
+                   encoding: JSONEncoding.default,
+                   headers: Keys.jwtHeaders)
+        .responseDecodable(of: DetailData.self) { response in
+            switch response.result {
+            case .success(let success):
+                completion(success)
+            case.failure(let error):
+                debugPrint(error)
+            }
+        }
+    }
+    
+    //MARK: - 13. 실시간, NEW 작품 조회 API
+    
+    func getRealTimeAndNewProductData(completion: @escaping (RealTimeAndNewProductData) -> Void) {
+        AF.request(baseURL + "/products/real-time",
+                   method: .get,
+                   encoding: JSONEncoding.default,
                    headers: Keys.jwtHeaders
-        ).responseDecodable(of: TodayProductData.self) { result in
+        ).responseDecodable(of: RealTimeAndNewProductData.self) { result in
             
             switch result.result {
             case .success(let success):
@@ -82,6 +118,7 @@ class DataManager {
             
         }
     }
+
     
     
     func postLogOut(completion: @escaping (LogOutResult) -> Void) {
@@ -123,46 +160,10 @@ class DataManager {
     }
     
     
-    //MARK: - 12. 작품 상세 조회
-    
-    func getDetailData(completion: @escaping (DetailData) -> Void) {
-        
-        AF.request(baseURL + "/products/\(DetailViewController.productIdx!)",
-                   method: .get,
-                   encoding: JSONEncoding.default,
-                   headers: Keys.jwtHeaders
-        ).responseDecodable(of: DetailData.self) { result in
-            switch result.result {
-            case .success(let success):
-                completion(success)
-            case.failure(let error):
-                debugPrint(error)
-            }
-        }
-    }
-    
-    //MARK: - 13. 실시간, NEW 작품 조회 API
-    
-    func getRealTimeAndNewProductData(completion: @escaping (RealTimeAndNewProductData) -> Void) {
-        AF.request(baseURL + "/products/real-time",
-                   method: .get,
-                   encoding: JSONEncoding.default,
-                   headers: Keys.jwtHeaders
-        ).responseDecodable(of: RealTimeAndNewProductData.self) { result in
-            
-            switch result.result {
-            case .success(let success):
-                completion(success)
-            case.failure(let error):
-                print(error)
-            }
-            
-        }
-    }
     
     //MARK: - API Index 15 (작품 찜하기 API)
     func postDibsonData(completion: @escaping (CardResigsterResult) -> Void) {
-        AF.request("https://prod.idus-b.shop/products/dibs/\(UserInfo.shared.useridx!)/\(DetailViewController.productIdx!)",
+        AF.request("https://prod.idus-b.shop/products/dibs/\(UserInfo.shared.useridx!)/\(DetailViewController().productIdx!)",
                    method: .post,
                    parameters: nil,
                    encoding: JSONEncoding.default,
@@ -181,7 +182,7 @@ class DataManager {
     }
     //MARK: - API Index 16 (작품 찜 취소 API)
     func patchDibsonData(completion: @escaping (CardResigsterResult) -> Void) {
-        AF.request("https://prod.idus-b.shop/products/dibs/\(UserInfo.shared.useridx!)/\(DetailViewController.productIdx!)",
+        AF.request("https://prod.idus-b.shop/products/dibs/\(UserInfo.shared.useridx!)/\(DetailViewController().productIdx!)",
                    method: .patch,
                    parameters: nil,
                    encoding: JSONEncoding.default,
@@ -230,7 +231,7 @@ class DataManager {
     func postBuyProduct(completion: @escaping (CardResigsterResult) -> Void, vc: FinalViewController) {
         
         let parameters: Parameters = [
-            "productIdx" : "\(DetailViewController.productIdx!)",
+            "productIdx" : "\(DetailViewController().productIdx!)",
             "optionContent" : "",
             "productCount" : "\(vc.productCount.text!)",
             "totalMoney" : "\(vc.allallprice.text?.components(separatedBy: ["원"]).joined() ?? "")",

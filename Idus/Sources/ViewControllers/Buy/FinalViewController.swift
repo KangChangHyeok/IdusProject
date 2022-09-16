@@ -10,7 +10,7 @@ import UIKit
 class FinalViewController: UIViewController {
     
     let postdata = DataManager()
-    
+    let productIdx = 0
     static var text = ""
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var writer: UILabel!
@@ -35,7 +35,7 @@ class FinalViewController: UIViewController {
     }
     
     func sD() {
-        postdata.getDetailData { DetailData in
+        postdata.getDetailData(productIdx: self.productIdx) { DetailData in
             self.writer.text = DetailData.result?.sellerInfo?.sellerNickname?.description
             self.product.text = DetailData.result?.product?.productTitle?.description
             self.productCount.text = BuyViewController.stepperValue.description

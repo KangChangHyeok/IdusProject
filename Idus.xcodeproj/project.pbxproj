@@ -282,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				27F6307E287590F800E1C6C6 /* ReviewCollectionViewCell */,
-				27F630862875E03000E1C6C6 /* BuyPopupViewController */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -370,6 +369,7 @@
 				278FB54D28C7882000F52D48 /* SignUp */,
 				278FB54E28C7890800F52D48 /* Main */,
 				278D21B92874705A00F3EA79 /* Search */,
+				27D029702876F8950039B97F /* Buy */,
 				27BE98CA286DD60800766272 /* MyInformation */,
 			);
 			path = ViewControllers;
@@ -380,7 +380,6 @@
 			children = (
 				275BB34B28716007004C9734 /* TodayTableViewCell */,
 				275BB38D28742ED1004C9734 /* Detail */,
-				27D029702876F8950039B97F /* Buy */,
 				275BB3812873E487004C9734 /* RealTimeCollectionVIewCell */,
 			);
 			path = Cells;
@@ -421,6 +420,7 @@
 		27D029702876F8950039B97F /* Buy */ = {
 			isa = PBXGroup;
 			children = (
+				27F630862875E03000E1C6C6 /* BuyPopupViewController */,
 				27D029712876F8AB0039B97F /* BuyViewController.swift */,
 				27D02973287700F30039B97F /* BuyNavigationController.swift */,
 				27D02975287719420039B97F /* FinalViewController.swift */,

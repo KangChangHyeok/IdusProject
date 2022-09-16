@@ -10,7 +10,7 @@ import Alamofire
 
 class ExistingUserLoginViewController: UIViewController {
     
-    //MARK: - IBOutlet
+    //MARK: - IBOutlet, property
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var naverUserButton: UIButton! {

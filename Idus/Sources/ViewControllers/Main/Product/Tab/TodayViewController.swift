@@ -116,7 +116,7 @@ extension TodayViewController: UITableViewDataSource {
 extension TodayViewController: CollectionViewCellDelegate {
     func selectedCell(_ productIdx: Int) {
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
-        DetailViewController.productIdx = productIdx
+        detailVC.productIdx = productIdx
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
