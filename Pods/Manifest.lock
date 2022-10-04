@@ -1,4 +1,6 @@
 PODS:
+  - Cosmos (23.0.0)
+  - FSPagerView (0.8.3)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/BottomSheet (124.2.0):
     - MaterialComponents/Elevation
@@ -28,17 +30,27 @@ PODS:
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
+  - Then (3.0.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 23.0)
+  - FSPagerView
   - MaterialComponents/BottomSheet
+  - Then
 
 SPEC REPOS:
   trunk:
+    - Cosmos
+    - FSPagerView
     - MaterialComponents
+    - Then
 
 SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 7593dae84e26fcb2045e826db0577606f4ef6b8d
+PODFILE CHECKSUM: f7f5804f1acc2c8b20691b0ebcc63c269eb9435d
 
 COCOAPODS: 1.11.3
