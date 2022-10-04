@@ -10,7 +10,7 @@ import AVFoundation
 
 class LoginViewController: UIViewController {
     
-    //MARK: - IBOutlet
+    //MARK: - IBOutlet, property
     
     @IBOutlet weak var imageView: UIView! {
         didSet {
@@ -46,7 +46,6 @@ class LoginViewController: UIViewController {
             background.image = backgroundImages.randomElement() as? UIImage
         }
     }
-    
     let backgroundImages = [UIImage(named: "1.jpg"), UIImage(named: "2.jpg"), UIImage(named: "3.jpg"), UIImage(named: "4.jpg")]
     
     //MARK: - override Method
@@ -91,7 +90,6 @@ class LoginViewController: UIViewController {
             
         case otherSignUpButton:
             let actionSheet = UIAlertController(title: "다른 방법으로 가입하기", message: nil, preferredStyle: .actionSheet)
-            
             let naver = UIAlertAction(title: "네이버", style: .default)
             let facebook = UIAlertAction(title: "페이스북", style: .default)
             let twiter = UIAlertAction(title: "트위터", style: .default)

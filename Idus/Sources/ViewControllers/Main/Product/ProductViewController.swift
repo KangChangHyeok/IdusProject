@@ -19,13 +19,11 @@ class ProductViewController: TabmanViewController {
         let todayVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TodayViewController") as! TodayViewController
         let realTimeVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RealTimeViewController") as! RealTimeViewController
         let newVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewViewController") as! NewViewController
-                   
         viewControllers.append(todayVC)
         viewControllers.append(realTimeVC)
         viewControllers.append(newVC)
         return viewControllers
     }()
-    
     private lazy var searchBar = UISearchBar().then {
         $0.placeholder = "추석 연휴 할인을 검색해보세요."
         $0.searchTextField.font = UIFont.systemFont(ofSize: 14)
@@ -36,19 +34,15 @@ class ProductViewController: TabmanViewController {
         $0.searchTextField.layer.cornerRadius = 4
         $0.searchTextField.leftView = .none
         $0.searchTextField.leftViewMode = .never
-        
     }
-    
     private var idusLogo = UIButton(type: .system).then {
         $0.setImage(UIImage(named: "idusLogoImage.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
     }
-    
     private lazy var leftBarButtonItem = UIBarButtonItem(customView: idusLogo).then {
         $0.customView?.translatesAutoresizingMaskIntoConstraints = false
         $0.customView?.heightAnchor.constraint(equalToConstant: (self.navigationController?.navigationBar.frame.height)! / 1.7).isActive = true
         $0.customView?.widthAnchor.constraint(equalToConstant: self.view.frame.width / 7).isActive = true
     }
-
     private var tabBar = TMBar.ButtonBar().then {
         //TMBarView
         $0.backgroundView.style = .clear
@@ -89,15 +83,12 @@ extension ProductViewController: PageboyViewControllerDataSource, TMBarDataSourc
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
     }
-    
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         return viewControllers[index]
     }
-    
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
-    
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         switch index {
         case 0:
@@ -111,6 +102,4 @@ extension ProductViewController: PageboyViewControllerDataSource, TMBarDataSourc
             return TMBarItem(title: title)
         }
     }
-    
-    
 }

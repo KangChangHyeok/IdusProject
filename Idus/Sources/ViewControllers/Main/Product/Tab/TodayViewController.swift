@@ -22,7 +22,6 @@ class TodayViewController: UIViewController {
             todayTableView.register(UINib(nibName: CategoryCell.className, bundle: nil), forCellReuseIdentifier: CategoryCell.cellId)
         }
     }
-    
     let dataManager = DataManager()
     
     //MARK: - override Method
@@ -49,9 +48,7 @@ extension TodayViewController: UITableViewDataSource {
         default:
             return 0
         }
-        
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
@@ -77,7 +74,6 @@ extension TodayViewController: UITableViewDataSource {
                     cell.CategoryCellCollectionView.reloadData()
                 }
                 return cell
-                
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.cellId, for: indexPath) as! CategoryCell
                 cell.delegate = self
@@ -88,7 +84,6 @@ extension TodayViewController: UITableViewDataSource {
                     cell.CategoryCellCollectionView.reloadData()
                 }
                 return cell
-                
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.cellId, for: indexPath) as! CategoryCell
                 cell.delegate = self
@@ -99,7 +94,6 @@ extension TodayViewController: UITableViewDataSource {
                     cell.CategoryCellCollectionView.reloadData()
                 }
                 return cell
-                
             default:
                 return UITableViewCell()
             }
@@ -107,8 +101,6 @@ extension TodayViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
 }
 
 //MARK: - extension

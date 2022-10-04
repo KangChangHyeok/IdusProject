@@ -10,7 +10,7 @@ import Alamofire
 
 class EmailSignUpViewController: UIViewController {
     
-    //MARK: - IBOutlet
+    //MARK: - IBOutlet, property
     
     @IBOutlet weak var background: UIImageView! {
         didSet {
