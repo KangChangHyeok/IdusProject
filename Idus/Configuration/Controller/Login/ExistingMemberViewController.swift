@@ -60,7 +60,7 @@ class ExistingMemberViewController: UIViewController {
         self.appleLoginButton.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
         self.appleLoginButton.layer.cornerRadius = naverButton.frame.height / 2
         
-        self.dotLineV.createDottedLine(width: 3, color: CGColor(red: 255, green: 255, blue: 255, alpha: 1))
+        self.dotLineV.dottedLine(width: 3, color: CGColor(red: 255, green: 255, blue: 255, alpha: 1))
         
         self.loginButton.layer.borderWidth = 1
         self.loginButton.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
