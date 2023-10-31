@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "스크린샷 2022-07-11 오전 10.23.47.png",
+      "filename" : "logoImage@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "logoImage@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "logoImage@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

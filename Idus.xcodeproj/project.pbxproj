@@ -81,6 +81,7 @@
 		27FC5259286DB4C600A09424 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5258286DB4C600A09424 /* TodayViewController.swift */; };
 		27FC525B286DB4D000A09424 /* RealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC525A286DB4D000A09424 /* RealTimeViewController.swift */; };
 		27FC525D286DB4DA00A09424 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC525C286DB4DA00A09424 /* NewViewController.swift */; };
+		631A55EB2AF11E2200F92A3D /* LookinServer in Frameworks */ = {isa = PBXBuildFile; productRef = 631A55EA2AF11E2200F92A3D /* LookinServer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 				275BB31C287152AB004C9734 /* FSPagerView in Frameworks */,
 				2751BF0128675316005F9763 /* Alamofire in Frameworks */,
 				2397389870D965A69ECE8F1F /* Pods_Idus.framework in Frameworks */,
+				631A55EB2AF11E2200F92A3D /* LookinServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +569,7 @@
 				27FC5251286DB25500A09424 /* Tabman */,
 				275BB31B287152AB004C9734 /* FSPagerView */,
 				275BB3872873E8FC004C9734 /* Cosmos */,
+				631A55EA2AF11E2200F92A3D /* LookinServer */,
 			);
 			productName = Ideas;
 			productReference = 2751BED5286742E3005F9763 /* Idus.app */;
@@ -602,6 +605,7 @@
 				27FC5250286DB25500A09424 /* XCRemoteSwiftPackageReference "Tabman" */,
 				275BB31A287152AB004C9734 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				275BB3862873E8FC004C9734 /* XCRemoteSwiftPackageReference "Cosmos" */,
+				631A55E92AF11E2200F92A3D /* XCRemoteSwiftPackageReference "LookinServer" */,
 			);
 			productRefGroup = 2751BED6286742E3005F9763 /* Products */;
 			projectDirPath = "";
@@ -1004,6 +1008,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		631A55E92AF11E2200F92A3D /* XCRemoteSwiftPackageReference "LookinServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QMUI/LookinServer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1031,6 +1043,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 27FC5250286DB25500A09424 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		631A55EA2AF11E2200F92A3D /* LookinServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 631A55E92AF11E2200F92A3D /* XCRemoteSwiftPackageReference "LookinServer" */;
+			productName = LookinServer;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -8,14 +8,29 @@
 import UIKit
 import AVFoundation
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
     //MARK: - IBOutlet
-    @IBOutlet weak var splashMainV: UIView!
     @IBOutlet weak var dottedV: UIView!
-    @IBOutlet weak var kakaoButton: UIButton!
+    @IBOutlet weak var kakaoButton: UIButton! {
+        didSet {
+            kakaoButton.backgroundColor = .kakaoyellow
+            kakaoButton.layer.cornerRadius = kakaoButton.frame.height / 2
+            kakaoButton.tintColor = .kakaofont
+        }
+    }
     @IBOutlet weak var otherButton: UIButton!
-    @IBOutlet weak var existButton: UIButton!
-    @IBOutlet weak var appleButton: UIButton!
+    @IBOutlet weak var existButton: UIButton! {
+        didSet {
+            existButton.layer.borderWidth = 1
+            existButton.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+            existButton.layer.cornerRadius = existButton.frame.height / 2
+        }
+    }
+    @IBOutlet weak var appleButton: UIButton! {
+        didSet {
+            appleButton.layer.cornerRadius = 20
+        }
+    }
     @IBOutlet weak var noMemeberButton: UIButton!
     @IBOutlet weak var transitionV: UIImageView!
     
@@ -25,8 +40,6 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         splashMainVSet()
-        buttonSet()
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true, block: { timer in
@@ -38,20 +51,7 @@ class SplashViewController: UIViewController {
     
     //MARK: - customFunction
     func splashMainVSet() {
-        splashMainV.backgroundColor = .splashPVCColor
-        splashMainV.layer.cornerRadius = 10
-        self.dottedV.createDottedLine(width: 3.0, color: UIColor.white.cgColor)
-    }
-    
-    func buttonSet() {
-        self.kakaoButton.backgroundColor = .kakaoyellow
-        self.kakaoButton.layer.cornerRadius = kakaoButton.frame.height / 2
-        self.kakaoButton.tintColor = .kakaofont
-        
-        self.existButton.layer.borderWidth = 2
-        self.existButton.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        self.existButton.layer.cornerRadius = existButton.frame.height / 2
-        self.appleButton.layer.cornerRadius = appleButton.frame.height / 2
+        self.dottedV.dottedLine(width: 1.0, color: UIColor.white.cgColor)
     }
     
     //MARK: - IBActionFunction
