@@ -46,7 +46,7 @@ class MyInformationViewController: UIViewController {
         let alert = UIAlertController(title: "로그아웃되었습니다!", message: "아이디어스를 이용해 주셔서 감사합니다!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { UIAlertAction in
             self.dismiss(animated: true) {
-                guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "SplashViewController") as? SplashViewController else { return }
+                guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "SplashViewController") as? LoginViewController else { return }
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
             }
         }

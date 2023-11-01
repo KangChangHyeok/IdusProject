@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class PhoneNumberCheckViewController: UIViewController {
+final class PhoneNumberCheckViewController: UIViewController {
     
     @IBOutlet weak var requestView: UIView!
     @IBOutlet weak var phoneNumberTF: UITextField!
