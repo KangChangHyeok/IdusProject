@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kakao Login Pop Up View Controller-->
+        <!--Ka Kao Login View Controller-->
         <scene sceneID="cvE-CE-XQi">
             <objects>
-                <viewController storyboardIdentifier="KakaoLoginPopUpViewController" id="Gbx-cY-BaZ" customClass="KakaoLoginPopUpViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KaKaoLogin" id="Gbx-cY-BaZ" customClass="KaKaoLoginViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3jk-7b-x7e">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,11 +33,17 @@
                                         <rect key="frame" x="0.0" y="55.666666666666742" width="388" height="46"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="KakaoTalkLogin"/>
+                                        <connections>
+                                            <action selector="kakaoTalkLoginButtonDidTap:" destination="Gbx-cY-BaZ" eventType="touchUpInside" id="edf-82-Oem"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1v-vT-Yn4">
                                         <rect key="frame" x="0.0" y="111.66666666666676" width="388" height="45.666666666666671"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="KakaoAccountLogin"/>
+                                        <connections>
+                                            <action selector="kakaoAccountLoginButtonDidTap:" destination="Gbx-cY-BaZ" eventType="touchUpInside" id="rBp-YA-1h4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -71,12 +77,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rR-Jq-Kjq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4061" y="205"/>
+            <point key="canvasLocation" x="-5425" y="859"/>
         </scene>
         <!--Email Sign Up View Controller-->
         <scene sceneID="slf-Nc-mfD">
             <objects>
-                <viewController storyboardIdentifier="EmailSignUpViewController" id="4ov-cL-fkI" customClass="EmailSignUpViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmailSignUp" id="4ov-cL-fkI" customClass="EmailSignUpViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m1a-e4-vzX">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -449,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzS-Fb-AH3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3390" y="205"/>
+            <point key="canvasLocation" x="-4668" y="859"/>
         </scene>
         <!--Phone Number Check View Controller-->
         <scene sceneID="ZXP-gL-e1q">
@@ -576,12 +582,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6n4-BH-Mxe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3391" y="884"/>
+            <point key="canvasLocation" x="-3093" y="859"/>
         </scene>
-        <!--Splash View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="G2w-nM-MG6">
             <objects>
-                <viewController storyboardIdentifier="SplashViewController" id="JFO-um-Nas" customClass="SplashViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" id="JFO-um-Nas" customClass="LoginViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wtP-6V-J7D">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,7 +624,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="기존 회원 로그인"/>
                                         <connections>
-                                            <action selector="existUserLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="H6z-Ou-XT5"/>
+                                            <action selector="existUserLoginButtonDidTap:" destination="JFO-um-Nas" eventType="touchUpInside" id="H6z-Ou-XT5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gk-6D-QEy">
@@ -651,7 +657,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="notUserLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="BXX-wr-kbx"/>
+                                            <action selector="guestLoginButtonDidTap:" destination="JFO-um-Nas" eventType="touchUpInside" id="BXX-wr-kbx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -661,6 +667,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7V-Jo-Gv0">
                                         <rect key="frame" x="0.0" y="0.0" width="348" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.92199093099999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="d3p-lk-ADq"/>
                                         </constraints>
@@ -670,7 +677,7 @@
                                             <color key="titleColor" red="0.23449736830000001" green="0.1113597825" blue="0.1183535233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="kakaoLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="yx0-pe-4OT"/>
+                                            <action selector="kakaoLoginButtonDidTap:" destination="JFO-um-Nas" eventType="touchUpInside" id="yx0-pe-4OT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxH-oI-qvo">
@@ -683,7 +690,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="다른 방법으로 가입하기"/>
                                         <connections>
-                                            <action selector="otherLogin:" destination="JFO-um-Nas" eventType="touchUpInside" id="LYv-zh-bH9"/>
+                                            <action selector="anotherLoginButtonDidTap:" destination="JFO-um-Nas" eventType="touchUpInside" id="LYv-zh-bH9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -708,7 +715,7 @@
                     </view>
                     <connections>
                         <outlet property="appleButton" destination="8Gk-6D-QEy" id="Qgh-xy-Ywu"/>
-                        <outlet property="dottedV" destination="xbn-JA-DJw" id="oWR-oo-fvT"/>
+                        <outlet property="dottedView" destination="xbn-JA-DJw" id="oWR-oo-fvT"/>
                         <outlet property="existButton" destination="cdO-Z5-HAc" id="O2E-PO-dwG"/>
                         <outlet property="kakaoButton" destination="l7V-Jo-Gv0" id="bTq-Z2-hHg"/>
                         <outlet property="noMemeberButton" destination="qTT-IJ-2ia" id="VOM-BL-eaL"/>
@@ -718,12 +725,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZ9-SL-WwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4718.6915887850464" y="204.75161987041039"/>
+            <point key="canvasLocation" x="-4668" y="205"/>
         </scene>
-        <!--Existing Member View Controller-->
+        <!--User Login View Controller-->
         <scene sceneID="vDH-GO-rb4">
             <objects>
-                <viewController storyboardIdentifier="ExistingMemberViewController" id="GCY-XD-hP6" customClass="ExistingMemberViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserLogin" id="GCY-XD-hP6" customClass="UserLoginViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cqo-zu-ZiZ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -958,12 +965,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wnb-JM-Tux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2550" y="205"/>
+            <point key="canvasLocation" x="-3966" y="859"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VDt-5P-mLy">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="fFD-3b-zPC" customClass="TabBarController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" id="fFD-3b-zPC" customClass="TabBarController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VrQ-eT-UbP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3186,8 +3193,8 @@
         <image name="3" width="3024" height="4032"/>
         <image name="3.jpg" width="283.46456909179688" height="177.16534423828125"/>
         <image name="4" width="4160" height="6240"/>
-        <image name="KakaoAccountLogin" width="2196" height="254"/>
-        <image name="KakaoTalkLogin" width="2202" height="268"/>
+        <image name="KakaoAccountLogin" width="732" height="84.666664123535156"/>
+        <image name="KakaoTalkLogin" width="734" height="89.333335876464844"/>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>

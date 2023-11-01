@@ -6,8 +6,12 @@
 //
 
 import UIKit
+
 import Alamofire
-class ExistingMemberViewController: UIViewController {
+
+final class UserLoginViewController: UIViewController {
+    
+    //MARK: - IBOutlet
     
     @IBOutlet weak var naverButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
@@ -24,11 +28,21 @@ class ExistingMemberViewController: UIViewController {
     
     var viewBlurEffect: UIVisualEffectView!
     
+    init?(nscoder: NSCoder) {
+        super.init(coder: nscoder)
+        self.modalTransitionStyle = .crossDissolve
+        self.modalPresentationStyle = .overFullScreen
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UISet()
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -118,7 +132,7 @@ class ExistingMemberViewController: UIViewController {
 }
 
 
-extension ExistingMemberViewController: UITextFieldDelegate {
+extension UserLoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         emailTF.resignFirstResponder()

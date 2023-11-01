@@ -5,15 +5,17 @@
 //  Created by 강창혁 on 2022/06/27.
 //
 
-import UIKit
 import Alamofire
+import UIKit
 
-class EmailSignUpViewController: UIViewController {
+final class EmailSignUpViewController: UIViewController {
+    
+    //MARK: - IBOutlet
     
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var checkBoxV: UIView!
     @IBOutlet weak var signUpButton: UIButton!
-    //textfield
+
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var pwTF: UITextField!
@@ -28,10 +30,18 @@ class EmailSignUpViewController: UIViewController {
     @IBOutlet weak var checkButton3: UIButton!
     @IBOutlet weak var checkButton4: UIButton!
     
-    
-    
-    
     var viewBlurEffect: UIVisualEffectView!
+    
+    init?(nsCoder: NSCoder) {
+        super.init(coder: nsCoder)
+        self.modalTransitionStyle = .crossDissolve
+        self.modalPresentationStyle = .overFullScreen
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         blurSet()
