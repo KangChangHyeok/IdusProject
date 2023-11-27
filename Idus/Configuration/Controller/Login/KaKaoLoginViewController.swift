@@ -7,9 +7,12 @@
 
 import UIKit
 
+import Firebase
 import KakaoSDKUser
 
 final class KaKaoLoginViewController: UIViewController {
+    
+    var userCollection = Firestore.firestore().collection("User")
     
     //MARK: - Initializer
     
@@ -43,7 +46,27 @@ final class KaKaoLoginViewController: UIViewController {
                     print("loginWithKakaoTalk() success.")
 
                     //do something
-                    _ = oauthToken
+//                    _ = oauthToken
+                    UserApi.shared.me { user, error in
+                        dump(user)
+                        let document: [String: Any] = [
+                            "loginType": "kakao",
+                            "nickName": user?.kakaoAccount?.profile?.nickname,
+                            "email": user?.kakaoAccount?.email,
+                            "profileImage": user?.kakaoAccount?.profile?.profileImageUrl?.description
+                        ]
+                        self.userCollection.document("강창혁").setData(document)
+                        
+                        self.userCollection.getDocuments { querySnapshot, error in
+                            querySnapshot?.documents.forEach({ snapshot in
+                                if snapshot.documentID == "강창혁" {
+                                    print("유저 존재함")
+                                } else {
+                                    print("유저 존재안함")
+                                }
+                            })
+                        }
+                    }
                 }
             }
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-class NewViewController: UIViewController {
+class NewViewController2: UIViewController {
 
     @IBOutlet weak var newCollectionView: UICollectionView!
     let getdata = DataManager()
@@ -40,7 +40,7 @@ class NewViewController: UIViewController {
     }
 }
 
-extension NewViewController: UICollectionViewDataSource {
+extension NewViewController2: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productTitles.count
     }
@@ -59,7 +59,7 @@ extension NewViewController: UICollectionViewDataSource {
     
 }
 
-extension NewViewController: UICollectionViewDelegateFlowLayout {
+extension NewViewController2: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         guard let flow = collectionViewLayout as? UICollectionViewFlowLayout else {

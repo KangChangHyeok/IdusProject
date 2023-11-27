@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import FSPagerView
 import Kingfisher
-class TodayViewController: UIViewController {
+class TodayViewController2: UIViewController {
     
     let getdata = DataManager()
     
@@ -27,7 +27,7 @@ class TodayViewController: UIViewController {
 }
 
 
-extension TodayViewController: UITableViewDataSource {
+extension TodayViewController2: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -126,7 +126,7 @@ extension TodayViewController: UITableViewDataSource {
     
 }
 
-extension TodayViewController: CollectionViewCellDelegate {
+extension TodayViewController2: CollectionViewCellDelegate {
     func selectedCell(_ productIdx: Int) {
         guard let detailViewNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewNavigationController") as? DetailViewNavigationController else {return}
         detailViewNavigationController.modalPresentationStyle = .fullScreen
@@ -137,7 +137,7 @@ extension TodayViewController: CollectionViewCellDelegate {
         }
     }
 }
-extension TodayViewController: CollectionView2CellDelegate {
+extension TodayViewController2: CollectionView2CellDelegate {
     func selected2Cell(_ productIdx: Int) {
         guard let detailViewNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewNavigationController") as? DetailViewNavigationController else {return}
         detailViewNavigationController.modalPresentationStyle = .fullScreen
@@ -148,7 +148,7 @@ extension TodayViewController: CollectionView2CellDelegate {
         }
     }
 }
-extension TodayViewController: CollectionView3CellDelegate {
+extension TodayViewController2: CollectionView3CellDelegate {
     func selected3Cell(_ productIdx: Int) {
         guard let detailViewNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewNavigationController") as? DetailViewNavigationController else {return}
         detailViewNavigationController.modalPresentationStyle = .fullScreen

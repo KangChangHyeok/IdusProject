@@ -22,12 +22,12 @@ class MyInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setui()
-        dataManager.getUserInformation { UserInformationData in
-            self.userName.text = UserInformationData.result?.userName?.description
-//            self.userImage.kf.setImage(with: URL(string: (UserInformationData.result?.userImageURL!.description)!))
-            self.userEmail.text = UserInformationData.result?.userEmail?.description
-            self.userPhoneNumber.text = UserInformationData.result?.userPhoneNumber?.description
-        }
+//        dataManager.getUserInformation { UserInformationData in
+//            self.userName.text = UserInformationData.result?.userName?.description
+////            self.userImage.kf.setImage(with: URL(string: (UserInformationData.result?.userImageURL!.description)!))
+//            self.userEmail.text = UserInformationData.result?.userEmail?.description
+//            self.userPhoneNumber.text = UserInformationData.result?.userPhoneNumber?.description
+//        }
     }
     func setui() {
         logOutButton.backgroundColor = .idusmainColor
