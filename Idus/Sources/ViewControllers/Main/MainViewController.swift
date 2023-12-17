@@ -87,8 +87,11 @@ final class MainViewController: BaseViewController {
     weak var leadingConstraint: NSLayoutConstraint!
     
     private var selectedButtonTag = 0
-    private var pageViewController = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-    private var pages = [UIViewController]() 
+    private var pageViewController = MainPageViewController(
+        transitionStyle: .scroll,
+        navigationOrientation: .horizontal
+    )
+    private var pages = [UIViewController]()
     private lazy var buttons = [todayButton, foodButton, newButton]
     private var animator: UIViewPropertyAnimator?
     

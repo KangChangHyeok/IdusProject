@@ -45,6 +45,10 @@ final class BannerCell: UITableViewCell, Reusable {
     private var bannerImages: BannerImages? {
         didSet {
             bannerItemCollectionView.reloadData()
+            bannerItemCollectionView.setContentOffset(
+                .init(x: contentView.frame.width, y: 0),
+                animated: false
+            )
         }
     }
     
@@ -55,7 +59,8 @@ final class BannerCell: UITableViewCell, Reusable {
         self.selectionStyle = .none
         setupUI()
         Task {
-            self.bannerImages = try await NetworkManager.shared.fetchImages(count:10)
+            guard let bannerImages = try await NetworkManager.shared.fetchImages(count:10) else { return }
+            self.bannerImages = [bannerImages[9]] + bannerImages + [bannerImages[0]]
         }
     }
     
@@ -118,8 +123,23 @@ extension BannerCell: UICollectionViewDelegate {
         print(indexPath.row)
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        pageView.currentPageNumberLabel.text = "\(indexPath.row + 1)"
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let itemCount = bannerImages?.count else { return }
+        let index = Int(scrollView.contentOffset.x / contentView.frame.width)
+        if index == 0  {
+            bannerItemCollectionView.setContentOffset(
+                .init(x: Int(contentView.frame.width) * (itemCount - 2), y: 0),
+                animated: false
+            )
+        } else if index == itemCount - 1 {
+            bannerItemCollectionView.setContentOffset(
+                .init(x: contentView.frame.width, y: 0),
+                animated: false
+            )
+        }
+        pageView.currentPageNumberLabel.text = (
+            Int(scrollView.contentOffset.x / contentView.frame.width)
+        ).description
     }
 }
 

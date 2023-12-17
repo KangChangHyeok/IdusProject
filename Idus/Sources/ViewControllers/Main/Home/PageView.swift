@@ -11,7 +11,7 @@ final class PageView: UIView {
     
     let currentPageNumberLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = "1"
         label.textColor = .white
         label.font = .systemFont(ofSize: 10, weight: .light)
         label.numberOfLines = 1
