@@ -27,7 +27,7 @@ final class PageView: UIView {
         return label
     }()
     
-    private lazy var allBannerButton: UIButton = {
+    lazy var allBannerButton: UIButton = {
         var buttonConfig: UIButton.Configuration = .plain()
         buttonConfig.baseBackgroundColor = .clear
         buttonConfig.baseForegroundColor = .white

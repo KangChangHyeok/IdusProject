@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PageViewAllButtonDelegate: AnyObject {
+    func buttonDidTap(_ button: UIButton, bannerImages: BannerImages?)
+}
+
 final class BannerCell: UITableViewCell, Reusable {
+    
+    weak var pageViewAllButtonDelegate: PageViewAllButtonDelegate?
     
     private lazy var collectionViewFlowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -37,10 +43,19 @@ final class BannerCell: UITableViewCell, Reusable {
         return collectionView
     }()
     
-    private let pageView: PageView = {
+    private lazy var pageView: PageView = {
         let view = PageView()
+        view.allBannerButton.addAction(self.pageViewAllButtonAction, for: .touchUpInside)
         return view
     }()
+    
+    private lazy var pageViewAllButtonAction: UIAction = UIAction { [weak self] _ in
+        guard let self else { return }
+        self.pageViewAllButtonDelegate?.buttonDidTap(
+            self.pageView.allBannerButton,
+            bannerImages: bannerImages
+        )
+    }
     
     private var bannerImages: BannerImages? {
         didSet {

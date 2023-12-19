@@ -14,9 +14,18 @@ final class HomeViewController: BaseViewController {
         tableview.showsVerticalScrollIndicator = false
         tableview.delegate = self
         tableview.dataSource = self
-        tableview.register(BannerCell.self, forCellReuseIdentifier: BannerCell.reuseIdentifier)
-        tableview.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
-        tableview.register(BasicTypeTableViewCell.self, forCellReuseIdentifier: BasicTypeTableViewCell.reuseIdentifier)
+        tableview.register(
+            BannerCell.self,
+            forCellReuseIdentifier: BannerCell.reuseIdentifier
+        )
+        tableview.register(
+            CategoryTableViewCell.self,
+            forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier
+        )
+        tableview.register(
+            BasicTypeTableViewCell.self,
+            forCellReuseIdentifier: BasicTypeTableViewCell.reuseIdentifier
+        )
         tableview.separatorStyle = .none
         tableview.rowHeight = UITableView.automaticDimension
         tableview.estimatedRowHeight = 200
@@ -49,6 +58,7 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BannerCell") as! BannerCell
+            cell.pageViewAllButtonDelegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell") as! CategoryTableViewCell
@@ -68,4 +78,11 @@ extension HomeViewController: UITableViewDelegate {
     
 }
 
+// MARK: - PageViewAllButtonDelegate
 
+extension HomeViewController: PageViewAllButtonDelegate {
+    
+    func buttonDidTap(_ button: UIButton, bannerImages: BannerImages?) {
+        present(AllBannerListViewController(), animated: true)
+    }
+}
