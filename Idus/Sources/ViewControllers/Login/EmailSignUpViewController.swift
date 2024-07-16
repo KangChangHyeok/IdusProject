@@ -146,10 +146,6 @@ final class EmailSignUpViewController: UIViewController {
         signUpResultNetWork { signUpResult in
             if signUpResult.isSuccess! == true {
                 print("회원가입이 완료되었습니다.")
-                self.dismiss(animated: true) {
-                    guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController else { return }
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
-                }
             }
             else {
             }

@@ -118,11 +118,6 @@ final class UserLoginViewController: UIViewController {
                 
                 UserInfo.shared.useridx = result.result?.userIdx
                 UserInfo.shared.jwt = result.result?.jwt
-                
-                self.dismiss(animated: true) {
-                    guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? TabBarController else { return }
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
-                }
             }
             else {
                 print("로그인 안됌")

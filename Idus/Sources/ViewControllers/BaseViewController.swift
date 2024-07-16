@@ -16,10 +16,7 @@ class BaseViewController: UIViewController {
         configureUI()
     }
     
-    /// 기본 초기값 설정 함수
-    func configureDefaults() {
-        
-    }
+    
     
     ///기본 UI 관련 레이아웃 설정 함수
     func configureUI() {

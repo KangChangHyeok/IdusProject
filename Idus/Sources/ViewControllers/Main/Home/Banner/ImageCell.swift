@@ -11,6 +11,7 @@ final class ImageCell: UITableViewCell, Reusable {
     
     private let bannerImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     

@@ -22,12 +22,6 @@ class MyInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setui()
-//        dataManager.getUserInformation { UserInformationData in
-//            self.userName.text = UserInformationData.result?.userName?.description
-////            self.userImage.kf.setImage(with: URL(string: (UserInformationData.result?.userImageURL!.description)!))
-//            self.userEmail.text = UserInformationData.result?.userEmail?.description
-//            self.userPhoneNumber.text = UserInformationData.result?.userPhoneNumber?.description
-//        }
     }
     func setui() {
         logOutButton.backgroundColor = .idusmainColor
@@ -45,10 +39,6 @@ class MyInformationViewController: UIViewController {
         
         let alert = UIAlertController(title: "로그아웃되었습니다!", message: "아이디어스를 이용해 주셔서 감사합니다!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { UIAlertAction in
-            self.dismiss(animated: true) {
-                guard let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "SplashViewController") as? LoginViewController else { return }
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC, animated: false)
-            }
         }
         alert.addAction(okAction)
         self.present(alert, animated: true)

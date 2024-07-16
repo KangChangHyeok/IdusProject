@@ -11,13 +11,8 @@ import KakaoSDKUser
 import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var isLogged: Bool = false
-    var window: UIWindow?
     
-    func changeRootViewController (_ vc: UIViewController, animated: Bool) {
-        guard let window = self.window else { return }
-        window.rootViewController = vc // 전환
-    }
+    var window: UIWindow?
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
             if let url = URLContexts.first?.url {

@@ -133,8 +133,5 @@ final class LoginViewController: UIViewController {
             withIdentifier: "Main"
         ) as? TabBarController
         else { return }
-        
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        sceneDelegate?.changeRootViewController(mainViewController, animated: false)
     }
 }

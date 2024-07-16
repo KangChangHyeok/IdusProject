@@ -113,6 +113,7 @@ final class FoodViewController: UIViewController {
                 let outerGroupSize = NSCollectionLayoutSize(widthDimension: .estimated(1), heightDimension: .absolute((self.view.frame.width / 3 + 50) * 2))
                 let outerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: outerGroupSize, subitems: [group])
                 let section = NSCollectionLayoutSection(group: outerGroup)
+                section.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
                 section.orthogonalScrollingBehavior = .continuous
                 return section
             }
